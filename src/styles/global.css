@@ -2,6 +2,7 @@
 
 @theme {
   --font-harabara: "Harabara Mais", sans-serif;
+  --color-principal: #1A1A1A;
   --color-primary: #20396F;  
   --color-secondary: #939695; 
   --color-tertiary: #FDC632; 
