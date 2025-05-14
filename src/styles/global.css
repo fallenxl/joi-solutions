@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --font-harabara: "Harabara Mais", sans-serif;
+  --color-primary: #20396F;  
+  --color-secondary: #939695; 
+  --color-tertiary: #FDC632; 
+}
+@font-face {
+    font-family: "Harabara Mais";
+    font-style: normal;
+    src: url("../assets/fonts/Harabara-Mais-Demo.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}

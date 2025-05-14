@@ -1,0 +1,81 @@
+---
+import LogoIcon from "../icons/LogoIcon.astro";
+---
+
+<div
+  class="animation-container fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-white text-white text-5xl z-50"
+>
+  <LogoIcon className="opacity-0 z-[60]" />
+  <div class="bg-animation-secondary bg-neutral-900 h-screen w-full fixed top-0 left-0 z-40 scale-y-0 "></div>
+</div>
+
+<script>
+  import gsap from "gsap";
+
+  const bgAnimationSecondary = document.querySelector(
+    ".bg-animation-secondary"
+  ) as HTMLElement;
+  const animationContainer = document.querySelector(
+    ".animation-container"
+  ) as HTMLElement;
+  const logoContainer = document.querySelector(
+    ".logo-container"
+  ) as HTMLElement;
+  const logoFirstText = document.querySelector(".logo-first-text") as HTMLElement;
+  const logoSecondText = document.querySelector(".logo-second-text") as HTMLElement;
+  const logoSeparator = document.querySelector(".logo-separator");
+  const tl = gsap.timeline({
+    defaults: {
+      duration: 0.5,
+      ease: "power2.out",
+    },
+  });
+
+  tl.to(logoContainer, {
+    opacity: 1,
+    duration: 0.6,
+  })
+    .to(logoSeparator, {
+      scaleY: 1,
+      duration: 0.4,
+      marginLeft: "1rem",
+      marginRight: "1rem",
+      ease: "power2.out",
+    })
+    .from(logoFirstText, {
+      opacity: 0,
+      x: 20,
+      duration: 0.6,
+    })
+    .from(logoSecondText, {
+      opacity: 0,
+      x: -20,
+      duration: 0.6,
+    })
+    .to(logoSeparator, {
+      scaleY: 0,
+      duration: 0.6,
+      margin: "0 0 0 0",
+      ease: "power2.inOut",
+    })
+    .to(bgAnimationSecondary, {
+        scaleY: 1,
+        duration: 0.6,
+        transformOrigin: "bottom",
+        ease: "power2.inOut",
+    })
+    .to(logoFirstText, {
+      color: "white",
+      delay: 0.2,
+    }, "<")
+    .to(logoSecondText, {
+      color: "white",
+    }, "<")
+    .to(animationContainer, {
+      opacity: 0,
+      duration: 1,
+      display: "none",
+        ease: "power2.inOut",
+    })
+
+</script>
