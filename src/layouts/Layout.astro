@@ -1,7 +1,7 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import AnimationInit from "../components/AnimationInit.astro";
+import { ClientRouter } from "astro:transitions";
 
 ---
 
@@ -13,6 +13,7 @@ import AnimationInit from "../components/AnimationInit.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Joi Solutions</title>
+		<ClientRouter />
 	</head>
 	<body>
 		<AnimationInit />
