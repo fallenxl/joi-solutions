@@ -7,18 +7,15 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<div class="h-dvh flex flex-col items-center justify-center ">
-		<div class="flex flex-col items-center">
+	<div class="h-dvh flex flex-col items-center justify-center relative ">
+		<div class="flex flex-col items-center z-10">
 			
 			<h1 class="text-4xl font-bold text-white">Welcome to the Index Page!</h1>
-			<a href="/about">
+			<a href="/nosotros">
 				<button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
 					Go to About Page
 				</button>
 			</a>
 		</div>
-		<LogoIcon  variants="white" />
-
-
 	</div>
 </Layout>
