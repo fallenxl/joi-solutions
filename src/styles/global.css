@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-harabara-logo: "Harabara Mais Logo", sans-serif;
   --font-harabara: "Harabara Mais", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
   --color-principal: #1A1A1A;
   --color-primary: #20396F;  
   --color-secondary: #939695; 
   --color-tertiary: #FDC632; 
 }
+
 @font-face {
     font-family: "Harabara Mais Logo";
     font-style: normal;

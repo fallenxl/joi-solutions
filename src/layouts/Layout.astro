@@ -3,6 +3,7 @@ import "../styles/global.css";
 import AnimationInit from "../components/AnimationInit.astro";
 import { ClientRouter } from "astro:transitions";
 import Navigation from "../components/Navigation.astro";
+import CustomCursor from "../components/CustomCursor.astro";
 
 ---
 
@@ -16,7 +17,8 @@ import Navigation from "../components/Navigation.astro";
 		<title>Joi Solutions</title>
 		<ClientRouter />
 	</head>
-	<body class="bg-principal">
+	<body class="bg-principal font-poppins">
+		<CustomCursor />
 		<AnimationInit />
 		<Navigation />
 		<slot />

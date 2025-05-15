@@ -26,35 +26,40 @@ const links = [
 
 <header class="fixed top-0 left-0 w-full p-4 z-10">
   <nav
-    class="max-w-screen-lg mx-auto flex items-center justify-between px-6 
-           border border-secondary/20 text-white bg-white/5 
-           shadow-md backdrop-blur-[10px] rounded-full"
-  >
-    <div>
-      <LogoIcon variants="white" className="text-[1.5em]" />
+    class="max-w-screen-lg mx-auto flex items-center justify-between px-6
+             text-white ">
+    <div class="px-4">
+      <a href="/"> <LogoIcon variants="white" className="text-[1.5em]" /></a>
     </div>
     <div>
-      <ul class="hidden md:flex items-center gap-4 text-sm relative ">
-        {links.map((link, index) => (
-          <li class="relative group" >
-            <a href={link.href} class="px-2 py-1">{link.name}</a>
+      <ul class="hidden md:flex items-center gap-4 text-sm relative">
+        {
+          links.map((link, index) => (
+            <li class="relative group cursor-trigger">
+              <a href={link.href} class="px-2 py-1">
+                {link.name}
+              </a>
 
-            {link.dropdown.length > 0 && (
-              <ul
-                class="dropdown-menu absolute top-full left-0 mt-1 bg-white text-black rounded-md shadow-lg opacity-0 pointer-events-none scale-95 origin-top transition-transform duration-300"
-                id={`dropdown-${index}`}
-              >
-                {link.dropdown.map((item, subIndex) => (
-                  <li >
-                    <a href={item.href} class="block px-4 py-2 hover:bg-gray-100">
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
+              {link.dropdown.length > 0 && (
+                <ul
+                  class="dropdown-menu absolute top-full left-0 mt-1 bg-white text-black rounded-md shadow-lg opacity-0 pointer-events-none scale-95 origin-top transition-transform duration-300"
+                  id={`dropdown-${index}`}
+                >
+                  {link.dropdown.map((item, subIndex) => (
+                    <li>
+                      <a
+                        href={item.href}
+                        class="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </nav>
@@ -65,32 +70,31 @@ const links = [
 
   // Espera al montaje del DOM
 
-    const dropdownParents = document.querySelectorAll(".group");
+  const dropdownParents = document.querySelectorAll(".group");
 
-    dropdownParents.forEach((parent) => {
-      const dropdown = parent.querySelector(".dropdown-menu");
+  dropdownParents.forEach((parent) => {
+    const dropdown = parent.querySelector(".dropdown-menu");
 
-      if (dropdown) {
-        parent.addEventListener("mouseenter", () => {
-          gsap.to(dropdown, {
-            opacity: 1,
-            scale: 1,
-            duration: 0.3,
-            pointerEvents: "auto",
-            ease: "power2.out",
-          });
+    if (dropdown) {
+      parent.addEventListener("mouseenter", () => {
+        gsap.to(dropdown, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.3,
+          pointerEvents: "auto",
+          ease: "power2.out",
         });
+      });
 
-        parent.addEventListener("mouseleave", () => {
-          gsap.to(dropdown, {
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.2,
-            pointerEvents: "none",
-            ease: "power2.inOut",
-          });
+      parent.addEventListener("mouseleave", () => {
+        gsap.to(dropdown, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.2,
+          pointerEvents: "none",
+          ease: "power2.inOut",
         });
-      }
-    });
-
+      });
+    }
+  });
 </script>
