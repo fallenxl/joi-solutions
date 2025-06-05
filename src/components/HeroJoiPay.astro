@@ -4,6 +4,8 @@ import ArrowRight from "../icons/ArrowRight.astro";
 import Solutions from "./Solutions.astro";
 import { Image } from "astro:assets";
 import heroBg from "../assets/hero-bg.svg";
+import deviceJoiPay from "../assets/device.png";
+import mobileJoiPay from "../assets/mobile-joipay.png";
 ---
 
 <section class="relative overflow-hidden">
@@ -13,27 +15,19 @@ import heroBg from "../assets/hero-bg.svg";
   >
   </div> -->
   <div
-    class="w-full flex flex-col items-center pt-36 pb-10 overflow-hidden justify-center px-4 md:pl-2 relative h-[70vh] md:min-h-[80vh] 3xl:h-[10vh]"
+    class="w-full max-w-screen-xl mx-auto flex flex-col md:flex-row  items-center pt-36 pb-10 overflow-hidden justify-center px-4 md:pl-2 relative h-screen md:min-h-[80vh] 3xl:h-[10vh]"
   >
-    <a
-      href="/productos/joipay"
-      class="border border-neutral-200 px-6 py-1 rounded-full text-center text-neutral-500 text-sn md:text-lg mb-6 font-harabara animate-button bg-white cursor-trigger cursor-pointer"
-    >
-      <span class="flex items-center gap-1">
-        Descubre <span class="text-tertiary font-harabara"><JoiPayIcon /></span>
-        <ArrowRight /></span
-      >
-      </a>
     <div
-      class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance"
+      class="text-[1.8em] leading-[1.3em] xl:text-4xl 3xl:text-[5em] flex flex-col gap-2 items-center md:items-start text-neutral-700  text-balance"
     >
-      <span class="font-black animate-text"
-        >Conecta el presente con el futuro,<br /> el cambio empieza aquí <span
+      <span class="font-black animate-text text-center md:text-left">
+        Productos que conectan,<br />
+        soluciones que evolucionan<span
           class="text-tertiary">.</span
         ></span
       >
-      <small class=" px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance"
-        >Simplificando la tecnología, inspirando momentos<span
+      <small class=" px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance text-center md:text-left">
+        Simplificando la tecnología, inspirando momentos<span
           class="text-tertiary">.</span
         ></small
       >
@@ -48,12 +42,33 @@ import heroBg from "../assets/hero-bg.svg";
         </a>
         <a
           href="/contacto"
-          class="bg-tertiary px-8 text-white py-3 rounded-full shadow-lg cursor-trigger cursor-pointer border border-tertiary animate-button relative z-[40]"
+          class="bg-tertiary-dark px-8 text-white py-3 rounded-full shadow-lg cursor-trigger cursor-pointer border border-tertiary animate-button relative z-[40]"
         >
           <span class="relative z-[60] font-medium">Contáctanos</span>
         </a>
       </div>
     </div>
+    <div>
+    <div
+      class=" flex gap-10 px-4 py-5 md:py-20"
+    >
+      <div class="relative ">
+        <Image
+          src={deviceJoiPay}
+          alt="Device JoiPay"
+          class="relative z-10 w-full h-auto md:w-[500px] 3xl:w-[800px] mx-auto"
+        />
+        <Image
+          src={mobileJoiPay}
+          alt="Mobile JoiPay"
+          class="z-20 w-[100px] md:w-[150px] absolute top-[4em] left-0 parallax-device"
+
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+  </div>
   </div>
   <!-- Partículas animadas -->
   <div class="absolute inset-0 -z-[10] pointer-events-none">
@@ -73,8 +88,6 @@ import heroBg from "../assets/hero-bg.svg";
     >
     </div>
   </div>
-
-  <Solutions/>
 </section>
 <script>
   import gsap from "gsap";
@@ -94,7 +107,7 @@ import heroBg from "../assets/hero-bg.svg";
   const tl = gsap.timeline({
     defaults: { duration: 0.5, ease: "power2.out" },
   });
-  tl.delay(2.5);
+//   tl.delay(2.5);
   tl.from(words, {
     opacity: 0,
     stagger: 0.1,

@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+const benefits = [
+  {
+    title: "Facilita la transformación digital",
+    description:
+      "Nuestras soluciones tecnológicas hacen que lo complejo sea fácil, mejorando la forma en que las personas y los negocios se conectan y colaboran.",
+    icon: "fa-solid fa-plug",
+  },
+  {
+    title: "Impulsa el crecimiento sin fricciones",
+    description:
+      "Ofrecemos herramientas ágiles y accesibles que adaptan los procesos a las necesidades de cada cliente, brindando una experiencia de usuario fluida y sin barreras.",
+    icon: "fa-solid fa-chart-line",
+  },
+  {
+    title: "Soluciones adaptables y escalables",
+    description:
+      "Desde startups hasta grandes empresas, nuestras tecnologías crecen junto a ti, asegurando que siempre tengas la herramienta adecuada para cada etapa de tu negocio.",
+    icon: "fa-solid fa-cogs",
+    
+  },
+  {
+    title: "Conectividad inteligente",
+    description:
+      "Transformamos lo cotidiano en experiencias extraordinarias, haciendo que cada interacción, ya sea con clientes, socios o consumidores, sea significativa y sin complicaciones.",
+    icon: "fa-solid fa-network-wired",
+    
+  },
+  {
+    title: "Innovación con propósito",
+    description:
+      "No solo desarrollamos soluciones tecnológicas, creamos posibilidades que conectan, transforman y generan un impacto positivo, tanto en el mercado como en la vida de las personas.",
+    icon: "fa-solid fa-lightbulb",
+    
+  },
+  {
+    title: "Confianza y transparencia",
+    description:
+      "Nuestra tecnología está diseñada para brindar seguridad y tranquilidad, con un enfoque en la transparencia y en facilitar procesos con confianza.",
+    icon: "fa-solid fa-shield-alt",
+    
+  },
+];
+---
+
+<section>
+  <div class="flex flex-col md:flex-row items-start gap-6 max-w-screen-xl mx-auto py-8 benefits-container pt-10 md:pt-28 md:h-[70vh]">
+    <div class="flex-1 flex flex-col items-center md:items-start  md:w-1/2 pr-5 benefits-text-container">
+      <div
+        class="border  px-6 py-1 rounded-full text-center text-neutral-500 text-sn md:text-xl mb-6 font-harabara bg-neutral-50  border-neutral-200 shadow-2xl"
+      >
+        <span class="flex items-center  gap-1 ">Beneficios</span>
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-700 text-center md:text-left">
+        Expandiendo horizontes, conectando posibilidades
+      </h2>
+      <p class=" text-gray-600 text-balance text-center md:text-left max-w-[50ch] mt-5">
+        Descubre cómo nuestras soluciones pueden transformar tu 
+        la forma de interactuar y crecer en el mundo digital.
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2  gap-10  md:w-3/5 benefits-items-container">
+      {
+        benefits.map((benefit) => (
+          <div class="bg-white flex flex-col items-center md:items-start  p-2">
+            {/* <Image
+              src={benefit.image}
+              alt={benefit.title}
+              class="object-cover rounded-lg mb-4 border border-neutral-200"
+              loading="lazy"
+              width={382}
+              height={382}
+            /> */}
+            <div class="h-[200px] w-full relative mb-4 bg-neutral-50 flex items-center justify-center border border-neutral-200 rounded-lg">
+              <i class={benefit.icon + " text-tertiary text-7xl"} />
+            </div>
+            <div class="flex items-center mb-4">
+              {/* <i class={benefit.icon + " text-tertiary text-3xl mr-4"} /> */}
+              <h3 class="text-lg font-semibold text-neutral-700">
+                {benefit.title}
+              </h3>
+            </div>
+            <p class="text-gray-600 text-sm text-center md:text-left">{benefit.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  const benefitsContainer = document.querySelector(
+    ".benefits-container"
+  ) as HTMLElement;
+  const  benefitsTextContainer = document.querySelector(
+    ".benefits-text-container"
+  ) as HTMLElement;
+  const benefitsItemsContainer = document.querySelector(
+    ".benefits-items-container"
+  ) as HTMLElement;
+
+  const mediaHeight = benefitsItemsContainer.scrollHeight;
+  const textHeight = benefitsTextContainer.offsetHeight;
+
+  const tl = gsap.timeline({});
+
+  if(isDesktop) {
+   tl.to(benefitsTextContainer, {
+    scrollTrigger: {
+      trigger: benefitsContainer,
+      start: "top top",
+      scrub: true,
+      end: `+=${mediaHeight - textHeight}`,
+      pin: true,
+    },
+  }).to(benefitsItemsContainer, {
+    y: -(mediaHeight - textHeight),
+    ease: "none",
+    scrollTrigger: {
+      trigger: benefitsContainer,
+      start: "top top",
+      end: `+=${mediaHeight - textHeight}`,
+      scrub: true,
+    },
+  });
+  } 
+
+</script>

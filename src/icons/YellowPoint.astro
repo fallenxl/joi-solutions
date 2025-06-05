@@ -1,0 +1,39 @@
+---
+
+const {class:className} = Astro.props;
+---
+<div  class={`point w-2 h-2 bg-yellow-500 rounded-full ${className}` }></div>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline({
+
+    }); 
+    const points = gsap.utils.toArray<HTMLElement>(".point");
+    points.forEach((point) => {
+        // levitating
+        tl.to(point, {
+            y: -5,
+            duration: 2,
+            ease: "power1.inOut",
+            repeat: -1,
+            yoyo: true,
+            delay: gsap.utils.random(0, 1),
+        }, "<");
+
+        // parallax
+        tl.to(point, {
+            y: gsap.utils.random(-50, 50),
+            duration: 2,
+            ease: "power1.inOut",
+            scrollTrigger: {
+                trigger: point,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+            },
+        }, "<");
+    });
+</script>

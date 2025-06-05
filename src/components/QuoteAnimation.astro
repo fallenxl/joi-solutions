@@ -1,0 +1,41 @@
+<section class="py-20 md:py-40 w-full flex items-center justify-center">
+  <div
+    class="flex flex-col items-center justify-center max-w-screen-xl mx-auto px-4"
+  >
+    <p
+      class="text-[1.8em] md:text-[3.5em]  3xl:text-[5em] font-bold text-neutral-700 text-center leading-[1.1em] mb-4 animate-quote text-balance"
+    >
+        Pagos seguros, eficientes y transparentes con tecnología avanzada<span class="text-tertiary">.</span>
+    </p>
+  </div>
+</section>
+<script>
+  import gsap from "gsap";
+  import { SplitText } from "gsap/SplitText";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(SplitText, ScrollTrigger);
+
+  const animateQuote = document.querySelector(
+    ".animate-quote"
+  ) as HTMLElement;
+  const splitText = new SplitText(animateQuote, {
+    type: "words",
+    aria: "hidden",
+  });
+
+  const words = splitText.words;
+  const tl = gsap.timeline({});
+  gsap.from(words, {
+    opacity: 0,
+    stagger: 0.1,
+    duration: 2,
+    ease: "sine.out",
+    scrollTrigger: {
+      trigger: animateQuote,
+      start: "top 80%",
+      end: "top 20%",
+      toggleActions: "play none none reverse",
+    },
+  });
+</script>

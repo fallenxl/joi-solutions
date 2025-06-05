@@ -1,55 +1,65 @@
 ---
-import LogoIcon from "../icons/LogoIcon.astro";
+import LogoIcon from "../icons/JoiSolutionsIcon.astro";
+
 const links = [
+  {
+    name: "Inicio",
+    href: "/",
+    dropdown: [],
+    isActive: true,
+  },
   {
     name: "Nosotros",
     href: "/nosotros",
     dropdown: [],
+    isActive: false,
   },
   {
-    name: "Soluciones",
-    href: "/soluciones",
+    name: "Productos",
+    href: "/productos",
     dropdown: [
       {
         name: "JoiPay",
-        href: "/soluciones/joipay",
+        href: "/productos/joipay",
       },
     ],
-  },
-  {
-    name: "Contacto",
-    href: "/contacto",
-    dropdown: [],
+    isActive: false,
   },
 ];
+
+
 ---
 
-<header class="fixed top-0 left-0 w-full p-4 z-10">
+<header class="fixed top-0 left-0 w-full z-[60]">
   <nav
-    class="max-w-screen-lg mx-auto flex items-center justify-between px-6
-             text-white ">
-    <div class="px-4">
-      <a href="/"> <LogoIcon variants="white" className="text-[1.5em]" /></a>
-    </div>
-    <div>
-      <ul class="hidden md:flex items-center gap-4 text-sm relative">
+    class="nav-container max-w-screen-xl mx-auto flex items-center justify-between px-4 md:px-8 py-8 rounded-b-2xl relative bg-transparent transition-all duration-300 ease-in-out"
+  >
+    <div class="flex items-center gap-4">
+      <a href="/" class="cursor-pointer">
+        <LogoIcon class="text-[1.8em] md:text-[2em]" />
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="hidden md:flex items-center gap-2 text-sm md:text-lg">
         {
           links.map((link, index) => (
             <li class="relative group cursor-trigger">
-              <a href={link.href} class="px-2 py-1">
+              <a
+                href={link.href}
+                class="px-6 py-1 text-neutral-700 inline-block font-medium rounded-full link"
+              >
                 {link.name}
               </a>
 
               {link.dropdown.length > 0 && (
                 <ul
-                  class="dropdown-menu absolute top-full left-0 mt-1 bg-white text-black rounded-md shadow-lg opacity-0 pointer-events-none scale-95 origin-top transition-transform duration-300"
-                  id={`dropdown-${index}`}
+                  class="dropdown-menu absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg opacity-0 pointer-events-none scale-95 origin-top transition-transform duration-300"
                 >
-                  {link.dropdown.map((item, subIndex) => (
+                  {link.dropdown.map((item) => (
                     <li>
                       <a
                         href={item.href}
-                        class="block px-4 py-2 hover:bg-gray-100"
+                        class="px-4 py-2 hover:bg-gray-100 text-neutral-700 inline-block font-medium text-lg"
                       >
                         {item.name}
                       </a>
@@ -62,39 +72,108 @@ const links = [
         }
       </ul>
     </div>
+
+    <div class="items-center gap-4 absolute right-4 flex">
+      <a
+        class="bg-tertiary shadow-lg px-8 py-4 rounded-full text-white relative z-[40] hidden md:block"
+      >
+        <span class="relative z-[60] font-medium">Contáctanos</span>
+      </a>
+      <button id="nav-menu" class="bg-tertiary p-3 rounded-full md:hidden z-[50]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile nav -->
+  <div
+    id="mobile-menu"
+    class="fixed top-[-100%] left-0 w-full h-screen bg-white z-[50] flex flex-col gap-6 px-6 py-8 transition-all"
+  >
+    <div class="flex justify-between items-center">
+      <a href="/">
+        <LogoIcon class="text-[1.8em]" />
+      </a>
+      <button id="close-menu" class="text-2xl font-bold">×</button>
+    </div>
+
+    <ul class="flex flex-col gap-4 mt-6">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class="text-xl font-medium text-neutral-800">{link.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a href="/contacto" class="mt-auto bg-tertiary text-white text-center py-3 rounded-full font-medium">
+      Contáctanos
+    </a>
+  </div>
 </header>
+
+<style>
+  .link-active {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+  }
+</style>
 
 <script>
   import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
 
-  // Espera al montaje del DOM
+  const $ = (selector: string) => document.querySelector(selector);
 
-  const dropdownParents = document.querySelectorAll(".group");
+  const navContainer = $(".nav-container");
 
-  dropdownParents.forEach((parent) => {
-    const dropdown = parent.querySelector(".dropdown-menu");
+  // Scroll background effect
+  gsap.to(navContainer, {
+    backgroundColor: "#fff",
+    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+    duration: 0.3,
+    scrollTrigger: {
+      start: "top -10",
+      toggleActions: "play none none reverse",
+    },
+  });
 
-    if (dropdown) {
-      parent.addEventListener("mouseenter", () => {
-        gsap.to(dropdown, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.3,
-          pointerEvents: "auto",
-          ease: "power2.out",
-        });
-      });
-
-      parent.addEventListener("mouseleave", () => {
-        gsap.to(dropdown, {
-          opacity: 0,
-          scale: 0.95,
-          duration: 0.2,
-          pointerEvents: "none",
-          ease: "power2.inOut",
-        });
-      });
+  // Activa el link actual
+  const currentPath = window.location.pathname;
+  document.querySelectorAll(".link").forEach((link) => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("link-active");
     }
+  });
+
+  // Mobile menu toggle
+  const openBtn = $("#nav-menu") as HTMLButtonElement;
+  const closeBtn = $("#close-menu") as HTMLButtonElement;
+  const mobileMenu = $("#mobile-menu") as HTMLDivElement;
+
+  openBtn.addEventListener("click", () => {
+    gsap.to(mobileMenu, {
+      top: 0,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    gsap.to(mobileMenu, {
+      top: "-100%",
+      duration: 0.5,
+      ease: "power2.in",
+    });
   });
 </script>

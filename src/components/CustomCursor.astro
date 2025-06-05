@@ -1,37 +1,56 @@
-<div id="cursor" class="h-3 w-3 bg-tertiary rounded-full fixed z-[100] pointer-events-none hidden md:block"></div>
-
+<div id="cursor" class="h-3 w-3 bg-tertiary rounded-full fixed z-[70] pointer-events-none hidden md:block"></div>
 <script>
-    import gsap from "gsap";
-    document.addEventListener("mousemove", (e) => {
-        const cursor = document.querySelector("#cursor");
-        if (cursor) {
-            gsap.to(cursor, {
-                x: e.clientX,
-                y: e.clientY,
-                duration: 0.2,
-                ease: "power2.out",
-            });
-        }
+   import gsap from "gsap";
 
-        const triggers = document.querySelectorAll(".cursor-trigger");
-        triggers.forEach((trigger) => {
-            trigger.addEventListener("mouseenter", () => {
-                gsap.to(cursor, {
-                    scale: 2,
-                    backgroundColor: "var(--color-tertiary)",
-                    duration: 1,
-                    ease: "power4.out",
-                });
-            });
+const cursor = document.querySelector("#cursor");
+const triggers = document.querySelectorAll(".cursor-trigger");
 
-            trigger.addEventListener("mouseleave", () => {
-                gsap.to(cursor, {
-                    scale: 1,
-                    backgroundColor: "var(--color-tertiary)",
-                    duration: 1,
-                    ease: "power4.out",
-                });
-            });
+document.addEventListener("mousemove", (e) => {
+    if (cursor) {
+        gsap.to(cursor, {
+            x: e.clientX,
+            y: e.clientY,
+            duration: 0.2,
+            ease: "power2.out",
+        });
+    }
+});
+
+triggers.forEach((trigger) => {
+    trigger.addEventListener("mouseenter", () => {
+        gsap.to(cursor, {
+            scale: 6,
+            backgroundColor: "var(--color-tertiary)",
+            duration: 0.2,
+            opacity: 0.7,
+            zIndex: 80, // entre 40 y 60
+            ease: "power4.out",
+        });
+        gsap.to(trigger, {
+            scale: 1.05,
+            duration: 0.2,
+            ease: "power2.inOut",
         });
     });
+
+    trigger.addEventListener("mouseleave", () => {
+        gsap.to(cursor, {
+            scale: 1,
+            backgroundColor: "var(--color-tertiary)",
+            duration: 0.2,
+            opacity: 1,
+            ease: "power4.inOut",
+        });
+        gsap.to(trigger, {
+            zIndex: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "power2.inOut",
+        });
+    });
+});
+
+
+
 </script>

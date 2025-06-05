@@ -1,0 +1,78 @@
+---
+import devicePng from "../assets/device.png";
+import { Image } from "astro:assets";
+import JoiPayIcon from "../icons/JoiPayIcon.astro";
+import ArrowRight from "../icons/ArrowRight.astro";
+---
+
+<div class="hero-device pt-10 border-b border-neutral-200">
+  <div
+    class="flex flex-col justify-start pb-10 items-center mx-auto max-w-screen-lg 3xl:max-w-screen-xl px-4 md:pl-2 relative"
+  >
+    <div class="flex flex-col items-center md:flex-row w-full">
+      <Image src={devicePng} alt="Device" class="w-full h-auto relative" />
+      <div
+        class="device-text w-full flex flex-col gap-2 items-center md:items-start justify-center my-10 md:my -0"
+      >
+        <JoiPayIcon
+          class="text-[2em] md:text-[3em] 3xl:text-[4.5em] text-neutral-700"
+        />
+        <p class="md:min-w-[500px] w-full text-balance text-neutral-700 text-sm text-center md:text-left">
+          Revoluciona la experiencia de pago en el entorno escolar con un
+          sistema que pone el control en manos de los estudiantes,
+        </p>
+       <div class="mt-4 text-sm flex items-center gap-2 text-neutral-800">
+        <a
+          href="/contacto"
+          class="bg-neutral-50 px-8 text-neutral-700 py-3 rounded-full hidden md:block shadow-lg cursor-trigger cursor-pointer border border-neutral-200  relative z-[40]"
+        >
+          <span class="relative z-[60] font-medium">Agendar una demo</span>
+        </a>
+         <a
+          href="/productos/joipay"
+          class="bg-tertiary px-8 text-white flex items-center gap-2 shadow-md py-3  rounded-full cursor-trigger cursor-pointer border border-tertiary relative z-[40]"
+        >
+          <span class="relative z-[60] font-medium">Ver más</span>
+          <ArrowRight class="stroke-neutral-100" />
+        </a>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const heroDevice = document.querySelector(".hero-device") as HTMLElement;
+  const deviceText = document.querySelector(".device-text") as HTMLElement;
+  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      start: "top top",
+      toggleActions: "play none none reverse",
+    },
+  });
+  tl.to(heroDevice, {
+    scale: 1.05,
+    duration: 0.6,
+    ease: "power1.inOut",
+  });
+  if (isDesktop) {
+    tl.to(heroDevice, { x: "-30%", duration: 0.6, ease: "power1.inOut" })
+      .from(
+        deviceText,
+        {
+          opacity: 0,
+          y: 50,
+          duration: 0.5,
+          stagger: 0.5,
+          ease: "power2.out",
+        },
+        "<=0.5"
+      );
+  }
+</script>
+

@@ -1,5 +1,8 @@
 ---
-import LogoIcon from '../icons/LogoIcon.astro';
+import Benefits from '../components/Benefits.astro';
+import CTO from '../components/CTO.astro';
+import Hero from '../components/Hero.astro';
+import QuoteAnimation from '../components/QuoteAnimation.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,15 +10,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<div class="h-dvh flex flex-col items-center justify-center relative ">
-		<div class="flex flex-col items-center z-10">
-			
-			<h1 class="text-4xl font-bold text-white text-center">Welcome to the Index Page!</h1>
-			<a href="/nosotros">
-				<button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-					Go to About Page
-				</button>
-			</a>
-		</div>
-	</div>
+	<Hero />
+	<QuoteAnimation />
+	<Benefits />
+	<CTO />
 </Layout>
