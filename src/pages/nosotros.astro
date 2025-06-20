@@ -1,14 +1,11 @@
 ---
-import JoiPayIcon from "../icons/JoiPayIcon.astro";
-import ArrowRight from "../icons/ArrowRight.astro";
 import { Image } from "astro:assets";
 import heroBg from "../assets/hero-bg.svg";
 import Layout from "../layouts/Layout.astro";
 import JoiSolutionsIcon from "../icons/JoiSolutionsIcon.astro";
 import Purpose from "../components/Purpose.astro";
-import Mision from "../components/Mision.astro";
-import CTO from "../components/CTO.astro";
-import Benefits from "../components/Benefits.astro";
+import CTA from "../components/CTA.astro";
+import MisionAndVision from "../components/MisionAndVision.astro";
 ---
 
 <Layout>
@@ -22,7 +19,7 @@ import Benefits from "../components/Benefits.astro";
       class="w-full flex flex-col items-center  pt-36 pb-10  overflow-hidden justify-center px-4 md:pl-2 relative min-h-[60vh] 3xl:h-[10vh]"
     >
       <div
-        class="border border-neutral-200 px-6 py-1 rounded-full text-center text-neutral-500 text-sn md:text-lg mb-6 font-harabara animate-button bg-white"
+        class="border border-neutral-200 px-6 py-2 rounded-full text-center text-neutral-500 text-sn md:text-lg mb-6 font-harabara animate-button bg-white"
       >
         <span class="flex items-center gap-1">
           <span class="text-tertiary font-harabara"><JoiSolutionsIcon /></span
@@ -30,10 +27,10 @@ import Benefits from "../components/Benefits.astro";
         >
       </div>
       <div
-        class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance"
+        class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance md:max-w-[30ch] "
       >
-        <span class="font-black animate-text">
-          Somos el puente entre la innovación<br />
+        <span class="font-medium animate-text">
+          Somos el puente entre la <span class="text-tertiary font-bold">innovación</span><br />
           y quienes la hacen posible<span class="text-tertiary">.</span>
         </span>
         <small
@@ -75,7 +72,7 @@ import Benefits from "../components/Benefits.astro";
     </div>
   </div>
   <Purpose />
-  <Mision/>
+  <MisionAndVision />
   <section class="py-20  w-full flex items-center justify-center">
   <div
     class="flex flex-col items-center justify-center max-w-screen-xl mx-auto px-4"
@@ -99,7 +96,7 @@ import Benefits from "../components/Benefits.astro";
 </section>
 
   <!-- <Benefits/> -->
-  <CTO/>
+  <CTA/>
 </Layout>
 
 <script>

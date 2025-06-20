@@ -32,7 +32,7 @@ const links = [
 
 <header class="fixed top-0 left-0 w-full z-[60]">
   <nav
-    class="nav-container max-w-screen-xl mx-auto flex items-center justify-between px-4 md:px-8 py-8 rounded-b-2xl relative bg-transparent transition-all duration-300 ease-in-out"
+    class="nav-container  mx-auto flex items-center justify-between px-4 md:px-8 py-8  relative bg-transparent transition-all duration-300 ease-in-out"
   >
     <div class="flex items-center gap-4">
       <a href="/" class="cursor-pointer">
@@ -75,7 +75,8 @@ const links = [
 
     <div class="items-center gap-4 absolute right-4 flex">
       <a
-        class="bg-tertiary shadow-lg px-8 py-4 rounded-full text-white relative z-[40] hidden md:block"
+        href="/contacto"
+        class="bg-neutral-100 border border-neutral-300 shadow-lg px-8 py-3 rounded-full text-neutral-700 relative hidden md:block cursor-trigger cursor-pointer"
       >
         <span class="relative z-[60] font-medium">Contáctanos</span>
       </a>
@@ -140,7 +141,7 @@ const links = [
   // Scroll background effect
   gsap.to(navContainer, {
     backgroundColor: "#fff",
-    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
     duration: 0.3,
     scrollTrigger: {
       start: "top -10",

@@ -1,9 +1,84 @@
 ---
+import { Image } from "astro:assets";
 import HeroJoiPay from "../../components/HeroJoiPay.astro";
 import LayoutJoiPay from "../../layouts/LayoutJoiPay.astro";
-
+import JoiPayDevice from "../../assets/device.png";
+import JoiPayBand from "../../assets/band.png";
+import CTA from "../../components/CTA.astro";
+import JoiPayBenefits from "../../components/JoiPayBenefits.astro";
+const solutions = [{}];
 ---
 
 <LayoutJoiPay>
   <HeroJoiPay />
+  <section>
+    <div class="max-w-screen-lg flex flex-col mx-auto px-4 py-8 items-center">
+      <div
+        class="border px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
+      >
+        <span class="flex items-center gap-1">Enfoque</span>
+      </div>
+      <p
+        class="text-xl md:text-4xl font-medium text-neutral-700 text-center leading-[1.5em]"
+      >
+        Transforma la experiencia de pago en colegios, ofreciendo <span
+          class="text-tertiary">mayor control y seguridad</span
+        > para alumnos y administradores <span class="text-tertiary">.</span>
+      </p>
+    </div>
+  </section>
+  <section class="px-2 md:px-20 my-10">
+    <div
+      class="bg-neutral-50 min-h-screen rounded-2xl mx-auto flex flex-col  md:flex-row items-center justify-center gap-10  px-5 py-10 md:py-5"
+    >
+      <div
+        class="h-full w-full md:w-1/2 bg-tertiary-dark/50 rounded-2xl flex items-center justify-center p-5 relative"
+      >
+        <Image
+          src={JoiPayBand}
+          width={400}
+          class="w-[200px] md:w-[400px]"
+          alt="Imagen de JoiPay Band"
+          loading="lazy"
+        />
+      </div>
+      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start gap-4">
+        <div
+          class="border px-6 py-1 rounded-full text-center text-neutral-500 text-lg mb-2 font-medium bg-neutral-50 border-neutral-200 shadow-2xl "
+        >
+          <span class="flex items-center gap-1">
+            Solución JoiPay
+          </span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-medium text-neutral-700 text-center md:text-left leading-[1em] mb-2">
+          Pagos escolares seguros y sin efectivo
+        </h2>
+        <p class="text-lg text-neutral-600 text-center md:text-left">
+          Permite a padres y administradores monitorear y gestionar los pagos de
+          los estudiantes en tiempo real, facilitando la administración y el
+          control de gastos dentro del entorno escolar.
+        </p>
+        <ul
+          class="text-lg text-neutral-600 text-left list-disc pl-6 space-y-2 mt-5"
+        >
+          <li>Reduce la exposición a pérdidas de dinero.</li>
+          <li>
+            Elimina el uso constante de efectivo por parte de los estudiantes.
+          </li>
+          <li>
+            Agiliza los procesos de cobro en concesionarios y puntos de venta.
+          </li>
+          <li>
+            Evita la desorganización financiera y operativa causada por el
+            manejo de efectivo.
+          </li>
+          <li>
+            Brinda mayor visibilidad y control sobre los pagos realizados.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <JoiPayBenefits />
+  <CTA description="Solicita JoiPay hoy y transforma la experiencia de pago en tu escuela, evento, estadio, centro comercial y más con una solución segura, digital e innovadora."/>
 </LayoutJoiPay>
