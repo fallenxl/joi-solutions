@@ -117,11 +117,11 @@ const products = [
             <Image
               src={product.mobileImage}
               alt="Mobile JoiPay"
-              class="z-20 w-[100px] md:w-[200px] absolute top-[2em] md:top-[4em] left-[4em]  parallax-device"
+              class="z-20 w-[100px] md:w-[200px] absolute top-[5em] md:top-[4em] left-0 md:left-[4em]  parallax-device"
               loading="lazy"
             />
           </div>
-          <div class="device-text md:w-2/3 flex flex-col gap-2 items-center md:items-start justify-center my-10  md:my-0">
+          <div class="device-text md:w-2/3 flex flex-col gap-2 items-center md:items-start justify-center my-4  md:my-0">
             {/* <product.icon class="text-[4em] md:text-[3em] 3xl:text-[4.5em] text-neutral-700 hidden md:block" /> */}
             <p class="md:min-w-[500px] w-full text-balance text-neutral-700 text-center mt-10">
               {product.description}
@@ -196,7 +196,7 @@ const products = [
 
   parallaxDevice.forEach((device) => {
     gsap.from(device, {
-      y: 80,
+      y: 50,
       ease: "none",
       scrollTrigger: {
         trigger: device,
