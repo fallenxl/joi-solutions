@@ -1,5 +1,5 @@
 ---
-import devicePng from "../assets/device.png";
+import devicePng from "../assets/js-1.png";
 import { Image } from "astro:assets";
 import JoiPayIcon from "../icons/JoiPayIcon.astro";
 import ArrowRight from "../icons/ArrowRight.astro";
@@ -14,10 +14,10 @@ import ArrowRight from "../icons/ArrowRight.astro";
       <div
         class="device-text w-full flex flex-col gap-2 items-center md:items-start justify-center my-10 md:my -0"
       >
-        <JoiPayIcon
+        <!-- <JoiPayIcon
           class="text-[2em] md:text-[3em] 3xl:text-[4.5em] text-neutral-700"
-        />
-        <p class="md:min-w-[500px] w-full text-balance text-neutral-700 text-sm text-center md:text-left">
+        /> -->
+        <p class="md:min-w-[500px] w-full text-balance text-neutral-700 text-sm md:text-base text-center md:text-left">
           Revoluciona la experiencia de pago en el entorno escolar con un
           sistema que pone el control en manos de los estudiantes,
         </p>
@@ -61,7 +61,7 @@ import ArrowRight from "../icons/ArrowRight.astro";
     ease: "power1.inOut",
   });
   if (isDesktop) {
-    tl.to(heroDevice, { x: "-30%", duration: 0.6, ease: "power1.inOut" })
+    tl.to(heroDevice, { x: "-25%", duration: 0.6, ease: "power1.inOut" })
       .from(
         deviceText,
         {

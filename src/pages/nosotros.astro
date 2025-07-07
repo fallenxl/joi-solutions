@@ -6,6 +6,27 @@ import JoiSolutionsIcon from "../icons/JoiSolutionsIcon.astro";
 import Purpose from "../components/Purpose.astro";
 import CTA from "../components/CTA.astro";
 import MisionAndVision from "../components/MisionAndVision.astro";
+import RedJoi from "../components/RedJoi.astro";
+
+const sections = [
+  {
+    title: "Nuestra historia",
+    description:
+      "Rediseñamos la forma en que las personas y los negocios se conectan. Creamos soluciones tecnológicas que simplifican lo complejo, acercan oportunidades y transforman lo cotidiano en experiencias inteligentes.",
+    image: heroBg,
+    imageAlt: "Background",
+  },
+  {
+    title: "Nuestra misión",
+    description:
+      "Impulsar la innovación tecnológica con propósito, creando soluciones que transformen vidas y negocios.",
+  },
+  {
+    title: "Nuestra visión",
+    description:
+      "Ser el referente en soluciones tecnológicas que conectan personas y negocios, impulsando un futuro más inteligente y accesible para todos.",
+  },
+];
 ---
 
 <Layout>
@@ -16,7 +37,7 @@ import MisionAndVision from "../components/MisionAndVision.astro";
   >
   </div> -->
     <div
-      class="w-full flex flex-col items-center  pt-36 pb-10  overflow-hidden justify-center px-4 md:pl-2 relative min-h-[60vh] 3xl:h-[10vh]"
+      class="w-full flex flex-col items-center pt-36 pb-10 overflow-hidden justify-center px-4 md:pl-2 relative min-h-[60vh] 3xl:h-[10vh]"
     >
       <div
         class="border border-neutral-200 px-6 py-2 rounded-full text-center text-neutral-500 text-sn md:text-lg mb-6 font-harabara animate-button bg-white"
@@ -27,10 +48,12 @@ import MisionAndVision from "../components/MisionAndVision.astro";
         >
       </div>
       <div
-        class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance md:max-w-[30ch] "
+        class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance md:max-w-[30ch]"
       >
         <span class="font-medium animate-text">
-          Somos el puente entre la <span class="text-tertiary font-bold">innovación</span><br />
+          Somos el puente entre la <span class="text-tertiary font-bold"
+            >innovación</span
+          ><br />
           y quienes la hacen posible<span class="text-tertiary">.</span>
         </span>
         <small
@@ -42,18 +65,17 @@ import MisionAndVision from "../components/MisionAndVision.astro";
         </small>
       </div>
       <div
-          class="mt-10 text-sm md:text-lg flex items-center gap-2 text-neutral-800"
+        class="mt-10 text-sm md:text-lg flex items-center gap-2 text-neutral-800"
+      >
+        <a
+          href="/contacto"
+          class="bg-tertiary-dark px-8 text-white py-3 rounded-full shadow-lg cursor-trigger cursor-pointer border border-tertiary animate-button relative z-[40]"
         >
-          <a
-            href="/contacto"
-            class="bg-tertiary-dark px-8 text-white py-3 rounded-full shadow-lg cursor-trigger cursor-pointer border border-tertiary animate-button relative z-[40]"
-          >
-            <span class="relative z-[60] font-medium">Contáctanos</span>
-          </a>
-        </div>
+          <span class="relative z-[60] font-medium">Contáctanos</span>
+        </a>
+      </div>
     </div>
   </section>
-  <!-- Partículas animadas -->
   <div class="absolute inset-0 -z-[10] pointer-events-none">
     <Image
       src={heroBg}
@@ -73,7 +95,7 @@ import MisionAndVision from "../components/MisionAndVision.astro";
   </div>
   <Purpose />
   <MisionAndVision />
-  <section class="py-20  w-full flex items-center justify-center">
+  <!-- <section class="py-20  w-full flex items-center justify-center">
   <div
     class="flex flex-col items-center justify-center max-w-screen-xl mx-auto px-4"
   >
@@ -93,10 +115,11 @@ import MisionAndVision from "../components/MisionAndVision.astro";
       >
     </p>
   </div>
-</section>
+</section> -->
 
   <!-- <Benefits/> -->
-  <CTA/>
+<RedJoi />
+  <CTA />
 </Layout>
 
 <script>

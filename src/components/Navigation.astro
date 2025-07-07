@@ -19,8 +19,8 @@ const links = [
     href: "/productos",
     dropdown: [
       {
-        name: "JoiPay",
-        href: "/productos/joipay",
+        name: "Pulsera de pago NFC",
+        href: "/productos/pulsera-de-pago-nfc",
       },
     ],
     isActive: false,
@@ -32,7 +32,7 @@ const links = [
 
 <header class="fixed top-0 left-0 w-full z-[60]">
   <nav
-    class="nav-container  mx-auto flex items-center justify-between px-4 md:px-8 py-8  relative bg-transparent transition-all duration-300 ease-in-out"
+    class="nav-container max-w-screen-xl md:rounded-b-2xl  mx-auto flex items-center justify-between px-4 md:px-8 py-8  relative bg-transparent transition-all duration-300 ease-in-out"
   >
     <div class="flex items-center gap-4">
       <a href="/" class="cursor-pointer">
@@ -97,13 +97,17 @@ const links = [
   <!-- Mobile nav -->
   <div
     id="mobile-menu"
-    class="fixed top-[-150%] left-0 w-full h-dvh bg-white z-[50] flex flex-col gap-6 px-6 py-8 transition-all"
+    class="fixed top-[-150%] left-0 w-full h-dvh bg-white z-[50] flex flex-col gap-6 px-6 py-8 transition-all md:hidden"
   >
     <div class="flex justify-between items-center">
       <a href="/">
         <LogoIcon class="text-[1.8em]" />
       </a>
-      <button id="close-menu" class="text-2xl font-bold">×</button>
+      <button id="close-menu" class="p-2 rounded-full hover:bg-neutral-100 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-tertiary font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
 
     <ul class="flex flex-col gap-4 mt-6">
@@ -163,18 +167,12 @@ const links = [
   const mobileMenu = $("#mobile-menu") as HTMLDivElement;
 
   openBtn.addEventListener("click", () => {
-    gsap.to(mobileMenu, {
-      top: 0,
-      duration: 0.5,
-      ease: "power2.out",
-    });
+    mobileMenu.style.top = "0";
+    mobileMenu.style.transition = "top 0.5s cubic-bezier(0.4,0,0.2,1)";
   });
 
   closeBtn.addEventListener("click", () => {
-    gsap.to(mobileMenu, {
-      top: "-150%",
-      duration: 0.5,
-      ease: "power2.in",
-    });
+    mobileMenu.style.top = "-150%";
+    mobileMenu.style.transition = "top 0.5s cubic-bezier(0.4,0,0.2,1)";
   });
 </script>

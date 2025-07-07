@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import RedPontis from "../assets/red-pontis.png";
+import JoiSolutionsIcon from "../icons/JoiSolutionsIcon.astro";
+---
+
+<section>
+  <div class="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-10 mt-10 mb-24">
+    <div class="flex flex-col items-center text-center">
+      <div class="flex flex-col md:flex-row gap-2 items-center justify-center mb-6">
+        <Image width={200} height={200} src={RedPontis} alt="Red Pontis" />
+        <span class="text-2xl font-bold mx-5 text-tertiary">+</span>
+        <JoiSolutionsIcon
+          class="text-[2.5em] 3xl:text-[4.5em] text-neutral-700"
+        />
+      </div>
+      <p class="mt-2 text-neutral-600 text-xl max-w-2xl">
+        <strong>JoiSolutions</strong> es la marca comercial de <strong>Red Pontis</strong>, creada para llevar la
+        tecnología a otro nivel: más ágil, más conectada, más humana.
+      </p>
+      <p class="mt-4 text-neutral-600 text-xl max-w-2xl">
+        Diseñamos soluciones digitales que optimizan procesos, conectan a
+        personas y negocios, y abren nuevas formas de crecer.
+      </p>
+    </div>
+  </div>
+</section>

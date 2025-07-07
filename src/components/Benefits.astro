@@ -63,16 +63,8 @@ const benefits = [
       {
         benefits.map((benefit) => (
           <div class="bg-white flex flex-col items-center md:items-start  p-2">
-            {/* <Image
-              src={benefit.image}
-              alt={benefit.title}
-              class="object-cover rounded-lg mb-4 border border-neutral-200"
-              loading="lazy"
-              width={382}
-              height={382}
-            /> */}
-            <div class="h-[200px] w-full relative mb-4 bg-neutral-50 flex items-center justify-center border border-neutral-200 rounded-lg">
-              <i class={benefit.icon + " text-neutral-300 text-5xl md:text-7xl"} />
+            <div class="  relative mb-4 bg-neutral-50 flex items-start justify-start p-4 border border-neutral-200 rounded-lg">
+              <i class={benefit.icon + " text-tertiary text-3xl "} />
             </div>
             <div class="flex items-center mb-4">
               {/* <i class={benefit.icon + " text-tertiary text-3xl mr-4"} /> */}
@@ -80,7 +72,7 @@ const benefits = [
                 {benefit.title}
               </h3>
             </div>
-            <p class="text-gray-600 text-sm text-center md:text-left">{benefit.description}</p>
+            <p class="text-gray-600 text-center md:text-left">{benefit.description}</p>
           </div>
         ))
       }

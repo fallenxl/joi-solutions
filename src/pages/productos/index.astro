@@ -3,27 +3,18 @@ import { Image } from "astro:assets";
 import heroBg from "../../assets/hero-bg.svg";
 import Layout from "../../layouts/Layout.astro";
 import CTA from "../../components/CTA.astro";
-import deviceJoiPay from "../../assets/1.png";
-import mobileJoiPay from "../../assets/band.png";
+import deviceJoiPay from "../../assets/js-1.png";
+import mobileJoiPay from "../../assets/band-1.png";
 import JoiPayIcon from "../../icons/JoiPayIcon.astro";
-// import JoiSaveIcon from "../../icons/JoiSaveIcon.astro";
-// import JoiNowIcon from "../../icons/JoiNowIcon.astro";
-// import JoiCareIcon from "../../icons/JoiCareIcon.astro";
-// import four from "../../assets/4.png";
-// import ten from "../../assets/10.png";
-// import three from "../../assets/3.png";
-// import nine from "../../assets/9.png";
-// import five from "../../assets/5.png";
-// import eleven from "../../assets/11.png";
 const products = [
   {
-    name: "JoiPay",
+    name: "Pulsera de pago NFC",
     description:
       "Solución digital basada en banditas NFC que simplifica, organiza y da trazabilidad a las transacciones diarias en entornos escolares",
     mobileImage: mobileJoiPay,
     deviceImage: deviceJoiPay,
     icon: JoiPayIcon,
-    slug: "joipay",
+    slug: "pulsera-de-pago-nfc",
   },
   // {
   //   name: "JoiNow",
@@ -117,7 +108,7 @@ const products = [
             <Image
               src={product.mobileImage}
               alt="Mobile JoiPay"
-              class="z-20 w-[100px] md:w-[200px] absolute top-[5em] md:top-[4em] left-0 md:left-[4em]  parallax-device"
+              class="z-20 w-[100px] md:w-[200px] absolute top-[6em] md:top-[6em] left-0 md:left-[4em]  parallax-device"
               loading="lazy"
             />
           </div>

@@ -5,13 +5,40 @@ const currentYear = new Date().getFullYear();
 
 <footer>
   <div
-    class="bg-neutral-50 pt-12 pb-6  px-6 md:px-20  mx-auto flex flex-col items-center justify-center gap-4 border border-neutral-200 rounded-t-2xl shadow-xl"
+    class="bg-neutral-50 pt-12 pb-6 mx-auto flex flex-col items-center justify-center gap-4 border border-neutral-200 rounded-t-2xl shadow-xl w-full"
   >
-    <div class="flex flex-col md:flex-row justify-between items-start w-full text-neutral-600">
+    <div
+      class="flex flex-col md:flex-row justify-between items-start w-full text-neutral-600 px-6 md:px-20"
+    >
       <div>
         <JoiSolutionsIcon class="text-4xl" />
+        <div class="flex items-center gap-4 mt-2">
+          <a
+            href="/"
+            class="text-2xl font-bold text-neutral-500 cursor-pointer"
+          >
+            <!-- facebook icon -->
+            <i class="fab fa-facebook-f text-neutral-500"></i>
+          </a>
+          <a
+            href="/"
+            class="text-2xl font-bold text-neutral-500 cursor-pointer"
+          >
+            <!-- instagram icon -->
+            <i class="fab fa-instagram text-neutral-500"></i>
+          </a>
+          <a
+            href="/"
+            class="text-2xl font-bold text-neutral-500 cursor-pointer"
+          >
+            <!-- linkedin icon -->
+            <i class="fab fa-linkedin-in text-neutral-500"></i>
+          </a>
+        </div>
       </div>
-      <div class="flex flex-col md:flex-row items-start gap-10 md:gap-24 mt-10 md:mt-0">
+      <div
+        class="flex flex-col md:flex-row items-start gap-10 md:gap-24 mt-10 md:mt-0"
+      >
         <div>
           <h2 class="font-bold mb-2">Menu</h2>
           <ul class="flex flex-col gap-2">
@@ -30,25 +57,9 @@ const currentYear = new Date().getFullYear();
           <h2 class="font-bold mb-2">Productos</h2>
           <ul class="flex flex-col gap-2">
             <li>
-              <a href="/productos/joipay" class="cursor-trigger">JoiPay</a>
-            </li>
-            <li>
-              <!-- <a href="#" class="cursor-trigger">JoiCare</a> -->
-              <span class=" text-neutral-400">
-                JoiCare (Próximamente)
-              </span>
-            </li>
-            <li>
-              <!-- <a href="#" class="cursor-trigger">JoiNow</a> -->
-               <span class=" text-neutral-400">
-                JoiNow (Próximamente)
-               </span>
-            </li>
-            <li>
-              <!-- <a href="#" class="cursor-trigger">JoiNow</a> -->
-               <span class=" text-neutral-400">
-                JoiSave (Próximamente)
-               </span>
+              <a href="/productos/pulsera-de-pago-nfc" class="cursor-trigger"
+                >Pulsera de pago NFC</a
+              >
             </li>
           </ul>
         </div>
@@ -65,7 +76,9 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
     </div>
-    <div class="flex flex-col items-center justify-center gap-4 mt-12">
+    <div
+      class="w-full flex flex-col items-center justify-center gap-4 mt-12 border-t border-neutral-200 py-10"
+    >
       <p class="text-sm text-neutral-600 text-center">
         © {currentYear} JoiSolutions. Todos los derechos reservados.
       </p>
