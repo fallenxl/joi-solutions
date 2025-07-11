@@ -2,26 +2,44 @@
 import { Image } from "astro:assets";
 import RedPontis from "../assets/red-pontis.png";
 import JoiSolutionsIcon from "../icons/JoiSolutionsIcon.astro";
+import unionImage from "../assets/tech-partnership.png"; // reemplaza esto por la imagen ilustrativa que elijas
 ---
 
-<section>
-  <div class="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8 py-10 mt-10 mb-24">
-    <div class="flex flex-col items-center text-center">
-      <div class="flex flex-col md:flex-row gap-2 items-center justify-center mb-6">
-        <Image width={200} height={200} src={RedPontis} alt="Red Pontis" />
-        <span class="text-2xl font-bold mx-5 text-tertiary">+</span>
-        <JoiSolutionsIcon
-          class="text-[2.5em] 3xl:text-[4.5em] text-neutral-700"
+<section class="w-full bg-white pb-10 px-1 md:px-6">
+  <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 p-8 items-center bg-neutral-50 rounded-3xl shadow-lg">
+
+    <!-- Imagen ilustrativa de la fusión -->
+    <div class="w-full md:w-1/2 bg-tertiary/70 p-10 rounded-3xl flex items-center justify-center">
+      <div class="w-[300px] h-[400px] md:w-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-md">
+        <Image
+          src={unionImage}
+          width={400}
+          alt="Ilustración de colaboración entre empresas"
+          class="object-cover w-full h-full"
+          loading="lazy"
         />
       </div>
-      <p class="mt-2 text-neutral-600 text-xl max-w-2xl">
-        <strong>JoiSolutions</strong> es la marca comercial de <strong>Red Pontis</strong>, creada para llevar la
-        tecnología a otro nivel: más ágil, más conectada, más humana.
-      </p>
-      <p class="mt-4 text-neutral-600 text-xl max-w-2xl">
-        Diseñamos soluciones digitales que optimizan procesos, conectan a
-        personas y negocios, y abren nuevas formas de crecer.
-      </p>
     </div>
+
+    <!-- Texto de la fusión -->
+    <div class="w-full md:w-1/2 space-y-6">
+      <div class="flex items-center gap-4 justify-start mb-4">
+        <Image width={120} height={120} src={RedPontis} alt="Red Pontis" />
+        <span class="text-2xl font-bold text-tertiary">+</span>
+        <JoiSolutionsIcon class="text-[2.5em] text-neutral-700" />
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-neutral-700">
+        Una alianza para transformar el futuro digital.
+      </h2>
+      <p class="text-neutral-600 text-lg">
+        <strong>JoiSolutions</strong> nace como marca comercial de <strong>Red Pontis</strong>, combinando experiencia y visión para crear soluciones más ágiles, conectadas y humanas.
+      </p>
+      <ul class="text-neutral-700 list-disc pl-5 space-y-1">
+        <li>Conectamos empresas con tecnología que transforma.</li>
+        <li>Impulsamos procesos más simples, inteligentes y humanos.</li>
+        <li>Diseñamos herramientas para un crecimiento digital sostenible.</li>
+      </ul>
+    </div>
+
   </div>
 </section>

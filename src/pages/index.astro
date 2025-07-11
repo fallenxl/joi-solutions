@@ -1,15 +1,68 @@
 ---
-import Benefits from '../components/Benefits.astro';
-import CTA from '../components/CTA.astro';
-import Hero from '../components/Hero.astro';
-import QuoteAnimation from '../components/QuoteAnimation.astro';
-import Layout from '../layouts/Layout.astro';
-
+import { Image } from "astro:assets";
+import Benefits from "../components/Benefits.astro";
+import CTA from "../components/CTA.astro";
+import Hero from "../components/Hero.astro";
+import QuoteAnimation from "../components/QuoteAnimation.astro";
+import Layout from "../layouts/Layout.astro";
+import girlImage from "../assets/girl.png";
 ---
 
 <Layout>
-	<Hero />
-	<QuoteAnimation />
-	<Benefits />
-	<CTA />
+  <Hero />
+  <QuoteAnimation />
+  <Benefits />
+  <section class="w-full bg-white pb-10 px-1 md:px-6">
+    <div
+      class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 p-8 items-center bg-neutral-50 rounded-3xl shadow-lg"
+    >
+      <div
+        class="w-full md:w-1/2 bg-tertiary/70 p-10 rounded-3xl flex items-center justify-center"
+      >
+        <div
+          class="w-[300px] h-[400px] md:w-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-md"
+        >
+          <Image
+            src={girlImage}
+            width={400}
+            alt="Niña pagando con pulsera JoiSolutions"
+            class="object-cover w-full h-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="w-full md:w-1/2 space-y-6">
+        <div
+          class="border w-fit px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg font-medium mb-6 bg-neutral-50 border-neutral-200 shadow-2xl"
+        >
+          <span class="flex items-center gap-1">Pago NFC</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-700">
+          Pagos flexibles pensados para niños.
+        </h2>
+        <p class="text-neutral-600 text-lg">
+          Permite que los estudiantes realicen pagos rápidos y seguros usando su
+          pulsera JoiPay. Ideal para cafeterías, tiendas escolares y eventos
+          internos.
+        </p>
+        <ul class="text-neutral-700 list-disc pl-5 space-y-1">
+          <li>
+            <strong>Fácil de usar:</strong> Solo acercan la pulsera al lector.
+          </li>
+          <li>
+            <strong>Control parental:</strong> Los padres pueden recargar y monitorear
+            el saldo.
+          </li>
+          <li>
+            <strong>Cashless total:</strong> Elimina el manejo de efectivo en el
+            entorno escolar.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTA showImage/>
 </Layout>

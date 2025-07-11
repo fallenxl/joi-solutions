@@ -12,29 +12,7 @@ const currentYear = new Date().getFullYear();
     >
       <div>
         <JoiSolutionsIcon class="text-4xl" />
-        <div class="flex items-center gap-4 mt-2">
-          <a
-            href="/"
-            class="text-2xl font-bold text-neutral-500 cursor-pointer"
-          >
-            <!-- facebook icon -->
-            <i class="fab fa-facebook-f text-neutral-500"></i>
-          </a>
-          <a
-            href="/"
-            class="text-2xl font-bold text-neutral-500 cursor-pointer"
-          >
-            <!-- instagram icon -->
-            <i class="fab fa-instagram text-neutral-500"></i>
-          </a>
-          <a
-            href="/"
-            class="text-2xl font-bold text-neutral-500 cursor-pointer"
-          >
-            <!-- linkedin icon -->
-            <i class="fab fa-linkedin-in text-neutral-500"></i>
-          </a>
-        </div>
+
       </div>
       <div
         class="flex flex-col md:flex-row items-start gap-10 md:gap-24 mt-10 md:mt-0"
@@ -77,11 +55,22 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
     <div
-      class="w-full flex flex-col items-center justify-center gap-4 mt-12 border-t border-neutral-200 py-10"
+      class="w-full flex flex-col items-center justify-center gap-4 mt-10 border-t border-neutral-200 py-5"
     >
       <p class="text-sm text-neutral-600 text-center">
         © {currentYear} JoiSolutions. Todos los derechos reservados.
       </p>
+              <div class="flex items-center justify-center gap-4 ">
+          <a
+            href="https://www.linkedin.com/company/joisolutions/"
+            class="text-2xl font-bold text-neutral-500 cursor-pointer cursor-trigger"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <!-- linkedin icon -->
+            <i class="fab fa-linkedin-in text-secondary"></i>
+          </a>
+        </div>
     </div>
   </div>
 </footer>
