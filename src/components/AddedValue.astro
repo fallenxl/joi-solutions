@@ -1,0 +1,184 @@
+---
+import { Image } from "astro:assets";
+import image1 from "../assets/16.png";
+import image2 from "../assets/17.png";
+import image3 from "../assets/18.png";
+import image4 from "../assets/19.png";
+import image5 from "../assets/20.png";
+
+const valores = [
+  {
+    titulo: "Innovación con propósito",
+    descripcion:
+      "Cada solución nace para transformar una experiencia, resolver un problema y abrir nuevas posibilidades.",
+    imagen: image1,
+  },
+  {
+    titulo: "Claridad sin fricciones",
+    descripcion:
+      "Diseñamos experiencias intuitivas que fluyen con naturalidad, sin obstáculos ni manuales extensos.",
+    imagen: image3,
+  },
+  {
+    titulo: "Conexión estratégica",
+    descripcion:
+      "Entendemos el contexto de cada sector. Por eso nuestras soluciones conectan con lo que realmente importa: los desafíos reales.",
+    imagen: image2,
+  },
+  {
+    titulo: "Evolución compartida",
+    descripcion:
+      "No imponemos tecnología, la cocreamos. Creciendo juntos y adaptándonos a la visión de cada sector.",
+    imagen: image4,
+  },
+  {
+    titulo: "Confianza que se construye",
+    descripcion:
+      "Tecnología segura, procesos transparentes y compromiso continuo.",
+    imagen: image5,
+  },
+];
+---
+
+<section id="valor-agregado" class="py-20 bg-white relative">
+  <div class="relative">
+    <div class="flex flex-col pb-10">
+      <div
+        class="border flex items-center justify-center mx-auto px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg font-medium mb-6 bg-neutral-50 border-neutral-200 shadow-2xl"
+      >
+        <span class="flex items-center gap-1"> Valor agregado </span>
+      </div>
+      <h2 class="text-2xl md:text-4xl font-medium text-neutral-700 text-center">
+        Lo que nos distingue<span class="text-tertiary font-bold text-3xl"
+          >.</span
+        >
+      </h2>
+    </div>
+
+    <!-- Contenedor con overflow oculto -->
+    <div class="relative">
+      <!-- Fades laterales -->
+      <div
+        class="hidden md:block pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-white to-transparent z-10"
+      >
+      </div>
+      <div
+        class="hidden md:block pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent z-10"
+      >
+      </div>
+
+      <!-- Botones navegación desktop -->
+      <button
+        id="prevBtn"
+        class="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-md rounded-full hover:bg-gray-100"
+      >
+        <svg
+          class="w-5 h-5 text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button
+        id="nextBtn"
+        class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-md rounded-full hover:bg-gray-100"
+      >
+        <svg
+          class="w-5 h-5 text-gray-700"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Carrusel -->
+
+      <div
+        id="carousel"
+        class="flex gap-4 md:gap-12 snap-x snap-mandatory scroll-smooth overflow-x-auto md:overflow-x-hidden pb-4 px-4 md:px-0 justify-start 3xl:justify-center"
+      >
+        {
+          valores.map((item, i) => (
+            <div
+              class="w-[90%] border border-neutral-200 rounded-xl sm:min-w-[300px] max-w-sm snap-center bg-neutral-100 shadow-md p-6 flex-shrink-0 flex flex-col items-center transition-transform duration-300 ease-in-out"
+              style="opacity: 0"
+              data-animate
+            >
+              <Image
+                width={300}
+                height={200}
+                src={item.imagen}
+                alt={item.titulo}
+                class="w-full h-48 object-cover rounded-md mb-4"
+                loading="lazy"
+              />
+              <h3 class="text-xl font-semibold mb-2 text-center text-gray-800">
+                {item.titulo}
+              </h3>
+              <p class="text-gray-600 text-sm text-center">
+                {item.descripcion}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const carousel = document.getElementById("carousel") as HTMLElement;
+      const prevBtn = document.getElementById("prevBtn") as HTMLElement;
+      const nextBtn = document.getElementById("nextBtn") as HTMLElement;
+
+      // GSAP animaciones
+      document.querySelectorAll("[data-animate]").forEach((el, index) => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.15,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        });
+      });
+
+      // Mostrar u ocultar botones de navegación en desktop si hay scroll
+      function updateNavVisibility() {
+        const isScrollable = carousel.scrollWidth > carousel.clientWidth;
+        if (window.innerWidth >= 768) {
+          prevBtn.style.display = isScrollable ? "flex" : "none";
+          nextBtn.style.display = isScrollable ? "flex" : "none";
+        }
+      }
+
+      updateNavVisibility();
+      window.addEventListener("resize", updateNavVisibility);
+
+      prevBtn?.addEventListener("click", () => {
+        carousel.scrollBy({ left: -350, behavior: "smooth" });
+      });
+
+      nextBtn?.addEventListener("click", () => {
+        carousel.scrollBy({ left: 350, behavior: "smooth" });
+      });
+    });
+  </script>
+</section>

@@ -6,21 +6,28 @@ import Hero from "../components/Hero.astro";
 import QuoteAnimation from "../components/QuoteAnimation.astro";
 import Layout from "../layouts/Layout.astro";
 import girlImage from "../assets/girl.png";
+import AddedValue from "../components/AddedValue.astro";
+import RedJoi from "../components/RedJoi.astro";
+import VideoSection from "../components/VideoSection.astro";
 ---
 
 <Layout>
   <Hero />
+  
   <QuoteAnimation />
+ 
+  <AddedValue />
   <Benefits />
-  <section class="w-full bg-white pb-10 px-1 md:px-6">
+
+  <section class="w-full bg-white pb-10 px-4 md:px-6">
     <div
-      class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 p-8 items-center bg-neutral-50 rounded-3xl"
+      class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-10 md:gap-20 p-8 items-center bg-neutral-50 rounded-3xl border border-neutral-200"
     >
       <div
-        class="w-full md:w-1/2 bg-tertiary/70 p-10 rounded-3xl flex items-center justify-center"
+        class="w-full md:w-1/2 bg-tertiary/70 p-10 md:p-20 rounded-3xl flex items-center justify-center"
       >
         <div
-          class="w-[300px] h-[400px] md:w-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-md"
+          class="w-[300px] h-[300px] md:w-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-md"
         >
           <Image
             src={girlImage}
@@ -40,12 +47,12 @@ import girlImage from "../assets/girl.png";
           <span class="flex items-center gap-1">Pago NFC</span>
         </div>
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-700">
-          Pagos flexibles pensados para niños.
+          Pagos flexibles con TAQ
         </h2>
         <p class="text-neutral-600 text-lg">
-          Permite que los estudiantes realicen pagos rápidos y seguros usando su
-          pulsera JoiPay. Ideal para cafeterías, tiendas escolares y eventos
-          internos.
+          Revoluciona la experiencia de pago en escuelas, eventos y centros
+          comerciales con un sistema que pone el control en manos de los
+          estudiantes, ¡descubre más aquí!
         </p>
         <ul class="text-neutral-700 list-disc pl-5 space-y-1">
           <li>
@@ -63,6 +70,7 @@ import girlImage from "../assets/girl.png";
       </div>
     </div>
   </section>
-
-  <CTA showImage/>
+  <VideoSection />
+ <RedJoi />
+  <CTA showImage />
 </Layout>

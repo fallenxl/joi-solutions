@@ -10,7 +10,7 @@ const products = [
   {
     name: "Pulsera de pago NFC",
     description:
-      "Solución digital basada en banditas NFC que simplifica, organiza y da trazabilidad a las transacciones diarias en entornos escolares",
+      "Closeloop impulsa la modernización en instituciones educativas, eventos, centros comerciales y más con una solución digital basada en el dispositivo TAQ (Pulsera NFC) que simplifica, organiza y da trazabilidad a las transacciones diarias en diferentes entornos closeloop",
     mobileImage: mobileJoiPay,
     deviceImage: deviceJoiPay,
     icon: JoiPayIcon,
@@ -65,7 +65,9 @@ const products = [
       >
         <span class="font-medium animate-text">
           Productos que conectan,
-          <span class="text-tertiary font-bold">soluciones</span> que evolucionan<span class="text-tertiary font-bold">.</span>
+          <span class="text-tertiary font-bold">soluciones</span> que evolucionan<span
+            class="text-tertiary font-bold">.</span
+          >
         </span>
         <small
           class="px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance"
@@ -116,7 +118,7 @@ const products = [
             {/* <product.icon class="text-[4em] md:text-[3em] 3xl:text-[4.5em] text-neutral-700 hidden md:block" /> */}
             <p class="md:min-w-[500px] w-full text-balance text-neutral-700 text-center mt-10">
               {product.description}
-               <span class="text-tertiary font-black">.</span>
+              <span class="text-tertiary font-black">.</span>
             </p>
             <div class="mt-4 text-sm  flex items-center justify-center gap-2 text-neutral-800 w-full ">
               <a
@@ -127,12 +129,14 @@ const products = [
                   Agendar una demo
                 </span>
               </a>
-             {product.slug && <a
-                href={`/productos/${product.slug}`}
-                class="bg-tertiary px-8 text-white flex items-center gap-2 shadow-md py-3 rounded-full cursor-trigger cursor-pointer border border-tertiary relative z-[40]"
-              >
-                <span class="relative z-[60] font-medium">Ver más</span>
-              </a>}
+              {product.slug && (
+                <a
+                  href={`/productos/${product.slug}`}
+                  class="bg-tertiary px-8 text-white flex items-center gap-2 shadow-md py-3 rounded-full cursor-trigger cursor-pointer border border-tertiary relative z-[40]"
+                >
+                  <span class="relative z-[60] font-medium">Ver más</span>
+                </a>
+              )}
             </div>
           </div>
         </div>

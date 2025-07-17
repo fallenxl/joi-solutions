@@ -6,27 +6,38 @@ import CTA from "../../components/CTA.astro";
 import JoiPayBenefits from "../../components/JoiPayBenefits.astro";
 import Layout from "../../layouts/Layout.astro";
 import girlImage from "../../assets/girl.png";
+import VideoSection from "../../components/VideoSection.astro";
 ---
 
 <Layout>
   <HeroJoiPay />
-  
+
   <section>
-    <div class="max-w-screen-lg flex flex-col mx-auto px-4 py-8 items-center">
-      <div class="border px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 border-neutral-200 shadow-2xl">
+    <div
+      class="max-w-screen-xl w-full flex flex-col mx-auto px-4 py-8 items-center my-10"
+    >
+      <div
+        class="border px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
+      >
         <span class="flex items-center gap-1">Enfoque</span>
       </div>
-      <p class="text-xl md:text-4xl font-medium text-neutral-700 text-center leading-[1.5em]">
-        Transforma la experiencia de pago en colegios, ofreciendo 
+      <p
+        class="text-xl md:text-4xl font-medium text-neutral-700 text-center leading-[1.5em]"
+      >
+        Transforma la experiencia de pago en colegios, ofreciendo
         <span class="text-tertiary">mayor control y seguridad</span>
         para alumnos y administradores <span class="text-tertiary">.</span>
       </p>
     </div>
   </section>
 
-  <section class="px-2 md:px-20 my-10">
-    <div class="bg-neutral-50 min-h-screen rounded-2xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 px-5 py-10 md:py-5">
-      <div class="h-full w-full md:w-1/2 bg-tertiary/70 rounded-2xl flex items-center justify-center p-5 relative">
+  <section class="px-2 md:px-20 my-10 pt-20">
+    <div
+      class="max-w-screen-xl bg-neutral-50 rounded-2xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 px-4 py-10 md:p-8"
+    >
+      <div
+        class="h-full w-full md:w-1/2 bg-tertiary/70 rounded-2xl flex items-center justify-center p-5 relative"
+      >
         <Image
           src={JoiPayBand}
           width={400}
@@ -35,68 +46,118 @@ import girlImage from "../../assets/girl.png";
           loading="lazy"
         />
       </div>
-      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start gap-4">
-        <div class="border px-6 py-1 rounded-full text-center text-neutral-500 text-lg mb-2 font-medium bg-neutral-50 border-neutral-200 shadow-2xl">
+      <div
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start gap-4"
+      >
+        <div
+          class="border px-6 py-1 rounded-full text-center text-neutral-500 text-lg mb-2 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
+        >
           <span class="flex items-center gap-1">Solución JoiPay</span>
         </div>
-        <h2 class="text-3xl md:text-4xl font-medium text-neutral-700 text-center md:text-left leading-[1em] mb-2">
-          Pagos escolares seguros y sin efectivo
+        <h2
+          class="text-3xl md:text-4xl text-balance font-medium text-neutral-700 text-center md:text-left leading-[1em] mb-2"
+        >
+          ¿Qué ofrecemos? ¿Qué soluciona?
         </h2>
         <p class="text-lg text-neutral-600 text-center md:text-left">
-          Permite a padres y administradores monitorear y gestionar los pagos de los estudiantes en tiempo real, facilitando la administración y el control de gastos dentro del entorno escolar.
+          Closeloop transforma la experiencia de pago para usuarios y brinda
+          control y seguridad a comercios, colegios, centros comerciales y más..
         </p>
-        <ul class="text-lg text-neutral-600 text-left list-disc pl-6 space-y-2 mt-5">
+        <ul
+          class="text-lg text-neutral-600 text-left list-disc pl-6 space-y-2 mt-5"
+        >
           <li>Reduce la exposición a pérdidas de dinero.</li>
-          <li>Elimina el uso constante de efectivo por parte de los estudiantes.</li>
-          <li>Agiliza los procesos de cobro en concesionarios y puntos de venta.</li>
-          <li>Evita la desorganización financiera y operativa causada por el manejo de efectivo.</li>
-          <li>Brinda mayor visibilidad y control sobre los pagos realizados.</li>
+          <li>
+            Elimina el uso constante de efectivo por parte de los estudiantes.
+          </li>
+          <li>
+            Agiliza los procesos de cobro en concesionarios y puntos de venta.
+          </li>
+          <li>
+            Evita la desorganización financiera y operativa causada por el
+            manejo de efectivo.
+          </li>
+          <li>
+            Brinda mayor visibilidad y control sobre los pagos realizados.
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
-   <section id="process" class="py-24 bg-neutral-50 border-y border-neutral-200 relative">
+  <section
+    id="process"
+    class="py-24 bg-neutral-50 border-y border-neutral-200 relative"
+  >
     <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-semibold text-center text-neutral-700 mb-16">¿Cómo funciona?</h2>
+      <h2
+        class="text-3xl md:text-4xl font-semibold text-center text-neutral-700 mb-16"
+      >
+        ¿Cómo funciona?
+      </h2>
 
       <div class="space-y-28">
         <!-- Paso 1 -->
-        <div class="step group opacity-0 translate-y-10 transition-all duration-700 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left max-w-md bg-tertiary/70 p-5 rounded-lg w-[100px] shadow-sm flex justify-center items-center">
-            <i class="fa fa-check-circle text-4xl text-white "></i>
+        <div
+          class="step group opacity-0 translate-y-10 transition-all duration-700 flex flex-col md:flex-row items-center gap-6"
+        >
+          <div
+            class="text-center md:text-left max-w-md bg-tertiary/70 p-5 rounded-lg w-[100px] shadow-sm flex justify-center items-center"
+          >
+            <i class="fa fa-check-circle text-4xl text-white"></i>
           </div>
           <div class="text-center md:text-left max-w-md">
-            <h3 class="text-2xl font-bold text-neutral-700 mb-2">1. Seleccionar el TAQ registrado</h3>
-            <p class="text-neutral-600 text-lg">El usuario escoge el dispositivo TAQ al que desea realizar la recarga desde su panel.</p>
+            <h3 class="text-2xl font-bold text-neutral-700 mb-2">
+              1. Seleccionar el TAQ registrado
+            </h3>
+            <p class="text-neutral-600 text-lg">
+              El usuario escoge el dispositivo TAQ al que desea realizar la
+              recarga desde su panel.
+            </p>
           </div>
         </div>
 
         <!-- Paso 2 -->
-        <div class="step group opacity-0 translate-y-10 transition-all duration-700 flex flex-col md:flex-row-reverse items-center gap-6">
-          <div class="text-center md:text-left  bg-tertiary/70 p-4 rounded-lg w-[100px] shadow-sm flex justify-center items-center">
-            <i class="fa fa-dollar-sign text-4xl text-white "></i>
+        <div
+          class="step group opacity-0 translate-y-10 transition-all duration-700 flex flex-col md:flex-row-reverse items-center gap-6"
+        >
+          <div
+            class="text-center md:text-left bg-tertiary/70 p-4 rounded-lg w-[100px] shadow-sm flex justify-center items-center"
+          >
+            <i class="fa fa-dollar-sign text-4xl text-white"></i>
           </div>
           <div class="text-center md:text-right max-w-md">
-            <h3 class="text-2xl font-bold text-neutral-700 mb-2">2. Ingresar el monto a recargar</h3>
-            <p class="text-neutral-600 text-lg">Se introduce el valor exacto que se desea transferir al TAQ, de forma simple y segura.</p>
+            <h3 class="text-2xl font-bold text-neutral-700 mb-2">
+              2. Ingresar el monto a recargar
+            </h3>
+            <p class="text-neutral-600 text-lg">
+              Se introduce el valor exacto que se desea transferir al TAQ, de
+              forma simple y segura.
+            </p>
           </div>
         </div>
 
         <!-- Paso 3 -->
-        <div class="step group opacity-0 translate-y-10 transition-all duration-700 flex flex-col md:flex-row items-center gap-6">
-          <div class="text-center md:text-left max-w-md bg-tertiary/70 p-5 rounded-lg w-[100px] shadow-sm flex justify-center items-center">
-            <i class="fa fa-qrcode text-4xl text-white "></i>
+        <div
+          class="step group opacity-0 translate-y-10 transition-all duration-700 flex flex-col md:flex-row items-center gap-6"
+        >
+          <div
+            class="text-center md:text-left max-w-md bg-tertiary/70 p-5 rounded-lg w-[100px] shadow-sm flex justify-center items-center"
+          >
+            <i class="fa fa-qrcode text-4xl text-white"></i>
           </div>
           <div class="text-center md:text-left max-w-md">
-            <h3 class="text-2xl font-bold text-neutral-700 mb-2">3. Compartir el QR de pago</h3>
-            <p class="text-neutral-600 text-lg">Se genera un código QR que puede compartirse fácilmente para realizar el pago.</p>
+            <h3 class="text-2xl font-bold text-neutral-700 mb-2">
+              3. Compartir el QR de pago
+            </h3>
+            <p class="text-neutral-600 text-lg">
+              Se genera un código QR que puede compartirse fácilmente para
+              realizar el pago.
+            </p>
           </div>
         </div>
       </div>
     </div>
-
-    
 
     <!-- Animación Scroll GSAP -->
     <script>
@@ -112,15 +173,17 @@ import girlImage from "../../assets/girl.png";
             trigger: step,
             start: "top 80%",
             toggleActions: "play none none none",
+            once: true,
           },
           opacity: 1,
           y: 0,
-          duration: 0.5,
+          duration: 0.4,
           ease: "power2.out",
         });
       });
     </script>
   </section>
+ <VideoSection/>
 
   <section class="w-full bg-white py-10 px-1 md:px-6">
     <div
@@ -175,5 +238,7 @@ import girlImage from "../../assets/girl.png";
   </section>
 
   <JoiPayBenefits />
-  <CTA description="Solicita JoiPay hoy y transforma la experiencia de pago en tu escuela, evento, estadio, centro comercial y más con una solución segura, digital e innovadora."/>
+  <CTA
+    description="Solicitalo hoy y transforma la experiencia de pago en tu escuela, evento, estadio, centro comercial y más con una solución segura, digital e innovadora."
+  />
 </Layout>
