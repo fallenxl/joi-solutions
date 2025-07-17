@@ -7,7 +7,6 @@ import QuoteAnimation from "../components/QuoteAnimation.astro";
 import Layout from "../layouts/Layout.astro";
 import girlImage from "../assets/girl.png";
 import AddedValue from "../components/AddedValue.astro";
-import RedJoi from "../components/RedJoi.astro";
 import VideoSection from "../components/VideoSection.astro";
 ---
 
@@ -18,7 +17,7 @@ import VideoSection from "../components/VideoSection.astro";
  
   <AddedValue />
   <Benefits />
-
+  <VideoSection />
   <section class="w-full bg-white pb-10 px-4 md:px-6">
     <div
       class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-10 md:gap-20 p-8 items-center bg-neutral-50 rounded-3xl border border-neutral-200"
@@ -70,7 +69,6 @@ import VideoSection from "../components/VideoSection.astro";
       </div>
     </div>
   </section>
-  <VideoSection />
- <RedJoi />
+
   <CTA showImage />
 </Layout>
