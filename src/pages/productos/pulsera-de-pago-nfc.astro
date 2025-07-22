@@ -1,24 +1,25 @@
 ---
 import { Image } from "astro:assets";
-import HeroJoiPay from "../../components/HeroJoiPay.astro";
+import HeroJoi from "../../components/HeroJoi.astro";
 import JoiPayBand from "../../assets/band-1.png";
 import CTA from "../../components/CTA.astro";
-import JoiPayBenefits from "../../components/JoiPayBenefits.astro";
+import JoiBenefits from "../../components/JoiBenefits.astro";
 import Layout from "../../layouts/Layout.astro";
-import girlImage from "../../assets/girl.png";
 import VideoSection from "../../components/VideoSection.astro";
+import NFCPay from "../../components/NFCPay.astro";
 ---
 
 <Layout>
-  <HeroJoiPay />
+  <HeroJoi />
 
   <section>
     <div
-      class="max-w-screen-xl w-full flex flex-col mx-auto px-4 py-8 items-center my-10"
+      class="max-w-screen-xl w-full flex flex-col mx-auto px-4 py-16 items-center mb-20"
     >
       <div
-        class="border px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
+        class="border flex items-center gap-2 px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
       >
+        <i class="fa-solid fa-bullseye text-tertiary ml-2"></i>
         <span class="flex items-center gap-1">Enfoque</span>
       </div>
       <p
@@ -31,13 +32,12 @@ import VideoSection from "../../components/VideoSection.astro";
     </div>
   </section>
 
-  <section class="px-2 md:px-20 my-10 pt-20">
+  <section class="px-4 md:px-20  pt-20 bg-primary">
     <div
-      class="max-w-screen-xl bg-neutral-50 rounded-2xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 px-4 py-10 md:p-8"
+      class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 px-6 py-14 md:p-10"
     >
-      <div
-        class="h-full w-full md:w-1/2 bg-tertiary/70 rounded-2xl flex items-center justify-center p-5 relative"
-      >
+      <!-- Imagen -->
+      <div class="w-full md:w-1/2 flex justify-center">
         <Image
           src={JoiPayBand}
           width={400}
@@ -46,44 +46,94 @@ import VideoSection from "../../components/VideoSection.astro";
           loading="lazy"
         />
       </div>
+
+      <!-- Contenido -->
       <div
-        class="w-full md:w-1/2 flex flex-col items-center md:items-start gap-4"
+        class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-6"
       >
         <div
-          class="border px-6 py-1 rounded-full text-center text-neutral-500 text-lg mb-2 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
+          class="border px-6 py-1 rounded-full text-neutral-500 text-lg font-medium bg-white border-neutral-200 shadow-md"
         >
-          <span class="flex items-center gap-1">Solución JoiPay</span>
+          <span class="flex items-center gap-2">
+            <i class="fas fa-microchip text-tertiary"></i> Solución JoiPay
+          </span>
         </div>
+
         <h2
-          class="text-3xl md:text-4xl text-balance font-medium text-neutral-700 text-center md:text-left leading-[1em] mb-2"
+          class="text-3xl md:text-4xl font-semibold text-white leading-tight"
         >
-          ¿Qué ofrecemos? ¿Qué soluciona?
+          Transformamos la forma en que se realizan pagos
         </h2>
-        <p class="text-lg text-neutral-600 text-center md:text-left">
-          Closeloop transforma la experiencia de pago para usuarios y brinda
-          control y seguridad a comercios, colegios, centros comerciales y más..
-        </p>
-        <ul
-          class="text-lg text-neutral-600 text-left list-disc pl-6 space-y-2 mt-5"
-        >
-          <li>Reduce la exposición a pérdidas de dinero.</li>
-          <li>
-            Elimina el uso constante de efectivo por parte de los estudiantes.
-          </li>
-          <li>
-            Agiliza los procesos de cobro en concesionarios y puntos de venta.
-          </li>
-          <li>
-            Evita la desorganización financiera y operativa causada por el
-            manejo de efectivo.
-          </li>
-          <li>
-            Brinda mayor visibilidad y control sobre los pagos realizados.
-          </li>
-        </ul>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mt-2">
+          <div
+            class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]"
+            data-gsap="fade-up"
+          >
+            <i class="fas fa-shield-alt text-2xl text-tertiary mb-3"></i>
+            <p class="text-neutral-700 text-base">
+              Seguridad financiera para estudiantes y comercios.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]"
+            data-gsap="fade-up"
+          >
+            <i class="fas fa-money-bill-wave text-2xl text-tertiary mb-3"></i>
+            <p class="text-neutral-700 text-base">
+              Menos uso de efectivo, más control digital.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]"
+            data-gsap="fade-up"
+          >
+            <i class="fas fa-stopwatch text-2xl text-tertiary mb-3"></i>
+            <p class="text-neutral-700 text-base">
+              Cobros más rápidos en puntos de venta.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]"
+            data-gsap="fade-up"
+          >
+            <i class="fas fa-chart-line text-2xl text-tertiary mb-3"></i>
+            <p class="text-neutral-700 text-base">
+              Visibilidad total sobre cada pago realizado.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    import gsap from "gsap";
+
+    const elements = document.querySelectorAll("[data-gsap='fade-up']");
+
+    elements.forEach((el, i) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: i * 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+  </script>
 
   <section
     id="process"
@@ -183,61 +233,11 @@ import VideoSection from "../../components/VideoSection.astro";
       });
     </script>
   </section>
- <VideoSection/>
+  <VideoSection />
 
-  <section class="w-full bg-white py-10 px-1 md:px-6">
-    <div
-      class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 p-8 items-center bg-neutral-50 rounded-3xl"
-    >
-      <div
-        class="w-full md:w-1/2 bg-tertiary/70 p-10 rounded-3xl flex items-center justify-center"
-      >
-        <div
-          class="w-[300px] h-[400px] md:w-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-md"
-        >
-          <Image
-            src={girlImage}
-            width={400}
-            alt="Niña pagando con pulsera JoiSolutions"
-            class="object-cover w-full h-full"
-            loading="lazy"
-          />
-        </div>
-      </div>
+  <NFCPay />
 
-      <!-- Texto -->
-      <div class="w-full md:w-1/2 space-y-6">
-        <div
-          class="border w-fit px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg font-medium mb-6 bg-neutral-50 border-neutral-200 shadow-2xl"
-        >
-          <span class="flex items-center gap-1">Pago NFC</span>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-bold text-neutral-700">
-          Pagos flexibles pensados para niños.
-        </h2>
-        <p class="text-neutral-600 text-lg">
-          Permite que los estudiantes realicen pagos rápidos y seguros usando su
-          pulsera JoiPay. Ideal para cafeterías, tiendas escolares y eventos
-          internos.
-        </p>
-        <ul class="text-neutral-700 list-disc pl-5 space-y-1">
-          <li>
-            <strong>Fácil de usar:</strong> Solo acercan la pulsera al lector.
-          </li>
-          <li>
-            <strong>Control parental:</strong> Los padres pueden recargar y monitorear
-            el saldo.
-          </li>
-          <li>
-            <strong>Cashless total:</strong> Elimina el manejo de efectivo en el
-            entorno escolar.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <JoiPayBenefits />
+  <JoiBenefits />
   <CTA
     description="Solicitalo hoy y transforma la experiencia de pago en tu escuela, evento, estadio, centro comercial y más con una solución segura, digital e innovadora."
   />

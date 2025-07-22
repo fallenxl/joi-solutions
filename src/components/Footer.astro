@@ -11,8 +11,7 @@ const currentYear = new Date().getFullYear();
       class="flex flex-col md:flex-row justify-between items-start w-full text-neutral-600 px-6 md:px-20"
     >
       <div>
-        <JoiSolutionsIcon class="text-4xl" />
-
+        <JoiSolutionsIcon class="text-4xl" showSlogan />
       </div>
       <div
         class="flex flex-col md:flex-row items-start gap-10 md:gap-24 mt-10 md:mt-0"
@@ -42,13 +41,17 @@ const currentYear = new Date().getFullYear();
           </ul>
         </div>
         <div>
-          <h2 class="font-bold mb-2">Legal</h2>
+          <h2 class="font-bold mb-2">Contacto</h2>
           <ul class="flex flex-col gap-2">
             <li>
-              <a href="/" class="cursor-trigger">Política de privacidad</a>
+              <a
+                href="mailto:info@joisolutions.io"
+                class="cursor-trigger underline">info@joisolutions.io</a
+              >
             </li>
-            <li>
-              <a href="/" class="cursor-trigger">Términos y condiciones</a>
+            <li class="max-w-[30ch]">
+              Calle Coronel Andrés Reyes 437, oficina 902, San Isidro, en el
+              Edificio Platinum Plaza Torre II
             </li>
           </ul>
         </div>
@@ -60,17 +63,26 @@ const currentYear = new Date().getFullYear();
       <p class="text-sm text-neutral-600 text-center">
         © {currentYear} JoiSolutions. Todos los derechos reservados.
       </p>
-              <div class="flex items-center justify-center gap-4 ">
-          <a
-            href="https://www.linkedin.com/company/joisolutions/"
-            class="text-2xl font-bold text-neutral-500 cursor-pointer cursor-trigger"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <!-- linkedin icon -->
-            <i class="fab fa-linkedin-in text-secondary"></i>
-          </a>
-        </div>
+      <div class="flex items-center justify-center gap-4">
+        <a
+          href="https://www.linkedin.com/company/joisolutions/"
+          class="text-2xl font-bold text-neutral-500 cursor-pointer cursor-trigger"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <!-- linkedin icon -->
+          <i class="fab fa-linkedin-in text-secondary"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/joi_solutions/?hl=es-la"
+          class="text-2xl font-bold text-neutral-500 cursor-pointer cursor-trigger"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <!-- instagram icon -->
+          <i class="fab fa-instagram text-secondary"></i>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

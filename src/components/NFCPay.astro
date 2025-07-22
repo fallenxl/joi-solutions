@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import girlImage from "../assets/girl-nfc.jpg";
+---  
+  <section class="w-full bg-white pb-10 px-4 md:p-6">
+    <div
+      class="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-10 md:gap-20  items-center bg-neutral-50 rounded-3xl border border-neutral-200"
+    >
+      <div
+        class="w-full md:w-1/2 bg-tertiary/80 rounded-t-3xl md:rounded-l-3xl md:rounded-t-none p-7 md:py-20 flex items-center justify-center"
+      >
+        <div
+          class=" overflow-hidden rounded-xl shadow-md border border-neutral-200 "
+        >
+          <Image
+            src={girlImage}
+            width={400}
+            height={500}
+            alt="Niña pagando con pulsera JoiSolutions"
+            class="object-cover w-full h-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="w-full md:w-1/2 space-y-6 p-6 flex flex-col items-center md:items-start">
+        <div
+          class="border flex items-center  gap-2 w-fit px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg font-medium mb-6 bg-neutral-50 border-neutral-200 shadow-2xl"
+        >
+          <i class="fa-brands fa-nfc-symbol text-tertiary"></i>
+          <span class="flex items-center gap-1">Pago NFC</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-700">
+          Pagos flexibles con TAQ
+        </h2>
+        <p class="text-neutral-600 text-lg  text-center md:text-left">
+          Revoluciona la experiencia de pago en escuelas, eventos y centros
+          comerciales con un sistema que pone el control en manos de los
+          estudiantes, ¡descubre más aquí!
+        </p>
+        <a
+          href="/productos/pulsera-de-pago-nfc"
+          class="bg-tertiary  gap-2 px-8 mt-6 text-white py-3 rounded-full shadow-lg cursor-trigger cursor-pointer relative z-[40]"
+        >
+          <span class="relative z-[60] font-medium">Descubre más</span>
+          <i class="fa fa-arrow-right text-white ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>

@@ -7,18 +7,19 @@ import unionImage from "../assets/tech-partnership.png"; // reemplaza esto por l
 
 <section class="w-full bg-white py-10 my-10 px-4 md:px-6">
   <div
-    class="max-w-screen-xl mx-auto  flex flex-col md:flex-row gap-10 md:gap-20 px-4 md:px-8 py-8 items-center bg-neutral-50 rounded-3xl border border-neutral-200"
+    class="max-w-screen-xl mx-auto  flex flex-col md:flex-row gap-10 md:gap-14   items-center bg-neutral-50 rounded-3xl border border-neutral-200"
   >
     <!-- Imagen ilustrativa de la fusión -->
     <div
-      class="w-full md:w-1/2 bg-tertiary/70 p-10 md:p-20 rounded-3xl flex items-center justify-center"
+      class="w-full md:w-1/2 h-full bg-tertiary/80 rounded-t-3xl md:rounded-t-none md:rounded-l-3xl flex items-center justify-center p-10 md:py-20"
     >
       <div
-        class="w-[300px] h-[400px] md:w-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-md"
+        class=" overflow-hidden rounded-xl shadow-md "
       >
         <Image
           src={unionImage}
           width={400}
+          height={500}
           alt="Ilustración de colaboración entre empresas"
           class="object-cover w-full h-full"
           loading="lazy"
@@ -27,11 +28,11 @@ import unionImage from "../assets/tech-partnership.png"; // reemplaza esto por l
     </div>
 
     <!-- Texto de la fusión -->
-    <div class="w-full md:w-1/2 space-y-6">
+    <div class="w-full md:w-1/2 space-y-6 p-6">
       <div
-        class="flex flex-col md:flex-row items-center gap-4 justify-start mb-10"
+        class="flex flex-col md:flex-row items-center gap-4 justify-start mb-2"
       >
-        <Image width={180} height={180} src={RedPontis} alt="Red Pontis" />
+        <Image width={220} height={220} src={RedPontis} alt="Red Pontis" />
         <span class="text-xl font-bold text-tertiary">+</span>
         <JoiSolutionsIcon class="text-[2.5em] text-neutral-700" />
       </div>
@@ -42,15 +43,22 @@ import unionImage from "../assets/tech-partnership.png"; // reemplaza esto por l
           class="text-tertiary font-bold text-xl">.</span
         >
       </h2>
-      <p class="text-neutral-600 text-lg text-center md:text-left">
+      <p class="text-neutral-600 text-lg text-center md:text-left mb-10">
         <strong>JoiSolutions</strong> nace como marca comercial de <strong
           >Red Pontis</strong
         >, una empresa con más de 10 años de experiencia desarrollando
         tecnología para medios de pago en América Latina. Nacemos para llevar
         esa trayectoria a un nuevo nivel, creando soluciones que responden a los
         retos actuales de empresas e instituciones con una lógica más ágil,
-        escalable y centrada en el impacto<span class="text-tertiary font-bold text-3xl">.</span
+        escalable y centrada en el impacto<span class="text-tertiary font-bold text-3xl">.</span>
       </p>
+      <a 
+        href="/productos"
+        class="bg-tertiary px-8  text-white py-3 rounded-full shadow-lg cursor-trigger cursor-pointer relative z-[40]"
+      >
+        <span class="relative z-[60] font-medium">Descubre nuestros productos</span
+      >
+      </a>
     </div>
   </div>
 </section>

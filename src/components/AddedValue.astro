@@ -1,184 +1,122 @@
 ---
-import { Image } from "astro:assets";
-import image1 from "../assets/16.png";
-import image2 from "../assets/17.png";
-import image3 from "../assets/18.png";
-import image4 from "../assets/19.png";
-import image5 from "../assets/20.png";
-
-const valores = [
+const timelineSteps = [
   {
-    titulo: "Innovación con propósito",
-    descripcion:
-      "Cada solución nace para transformar una experiencia, resolver un problema y abrir nuevas posibilidades.",
-    imagen: image1,
+    title: "Seguridad financiera",
+    icon: "fas fa-shield-alt",
+    description:
+      "Protegemos transacciones de estudiantes y comercios con tecnología segura y transparente.",
   },
   {
-    titulo: "Claridad sin fricciones",
-    descripcion:
-      "Diseñamos experiencias intuitivas que fluyen con naturalidad, sin obstáculos ni manuales extensos.",
-    imagen: image3,
+    title: "Menos efectivo",
+    icon: "fas fa-money-bill-wave",
+    description:
+      "Facilitamos pagos digitales para reducir el uso de efectivo y mejorar el control.",
   },
   {
-    titulo: "Conexión estratégica",
-    descripcion:
-      "Entendemos el contexto de cada sector. Por eso nuestras soluciones conectan con lo que realmente importa: los desafíos reales.",
-    imagen: image2,
+    title: "Cobros rápidos",
+    icon: "fas fa-stopwatch",
+    description:
+      "Optimiza los tiempos de cobro en puntos de venta físicos con soluciones ágiles.",
   },
   {
-    titulo: "Evolución compartida",
-    descripcion:
-      "No imponemos tecnología, la cocreamos. Creciendo juntos y adaptándonos a la visión de cada sector.",
-    imagen: image4,
-  },
-  {
-    titulo: "Confianza que se construye",
-    descripcion:
-      "Tecnología segura, procesos transparentes y compromiso continuo.",
-    imagen: image5,
+    title: "Visibilidad total",
+    icon: "fas fa-chart-line",
+    description:
+      "Monitorea cada pago con datos en tiempo real para tomar decisiones informadas.",
   },
 ];
 ---
+<!-- title -->
+<div class="pt-20">
+  <h2 class="text-3xl font-bold text-center text-neutral-700">
+    Descubre el <span class="text-yellow-500">Valor Agregado</span>
+  </h2>
+  <p class="mt-2 text-lg text-center text-neutral-600">
+    Conoce cómo nuestras soluciones transforman la forma de realizar pagos.
+  </p>
+</div>
+<section class="relative w-full max-w-6xl mx-auto px-4 py-24">
+  <!-- Línea central (solo en desktop) -->
+  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-yellow-400 z-0 "></div>
 
-<section id="valor-agregado" class="py-20 bg-white relative">
-  <div class="relative">
-    <div class="flex flex-col pb-10">
+  <div class="space-y-16">
+    {timelineSteps.map((step, index) => (
       <div
-        class="border flex items-center justify-center mx-auto px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg font-medium mb-6 bg-neutral-50 border-neutral-200 shadow-2xl"
+        class={`flex flex-col sm:flex-row ${
+          index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
+        } items-center relative z-10`}
+        data-gsap="fade-up"
       >
-        <span class="flex items-center gap-1"> Valor agregado </span>
-      </div>
-      <h2 class="text-2xl md:text-4xl font-medium text-neutral-700 text-center">
-        Lo que nos distingue<span class="text-tertiary font-bold text-3xl"
-          >.</span
+        <!-- Izquierda -->
+        <div
+          class={`hidden sm:flex items-center gap-4 w-1/2 ${
+            index % 2 === 0
+              ? "justify-end pr-8 text-right"
+              : "justify-start pl-8 text-left"
+          }`}
         >
-      </h2>
-    </div>
-
-    <!-- Contenedor con overflow oculto -->
-    <div class="relative">
-      <!-- Fades laterales -->
-      <div
-        class="hidden md:block pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-white to-transparent z-10"
-      >
-      </div>
-      <div
-        class="hidden md:block pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white to-transparent z-10"
-      >
-      </div>
-
-      <!-- Botones navegación desktop -->
-      <button
-        id="prevBtn"
-        class="hidden md:flex items-center justify-center absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-md rounded-full hover:bg-gray-100"
-      >
-        <svg
-          class="w-5 h-5 text-gray-700"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M15 19l-7-7 7-7"></path>
-        </svg>
-      </button>
-      <button
-        id="nextBtn"
-        class="hidden md:flex items-center justify-center absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-md rounded-full hover:bg-gray-100"
-      >
-        <svg
-          class="w-5 h-5 text-gray-700"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"
-          ></path>
-        </svg>
-      </button>
-
-      <!-- Carrusel -->
-
-      <div
-        id="carousel"
-        class="flex gap-4 md:gap-12 snap-x snap-mandatory scroll-smooth overflow-x-auto md:overflow-x-hidden pb-4 px-4 md:px-0 justify-start 3xl:justify-center"
-      >
-        {
-          valores.map((item, i) => (
-            <div
-              class="w-[90%] border border-neutral-200 rounded-xl sm:min-w-[300px] max-w-sm snap-center bg-neutral-100 shadow-md p-6 flex-shrink-0 flex flex-col items-center transition-transform duration-300 ease-in-out"
-              style="opacity: 0"
-              data-animate
-            >
-              <Image
-                width={300}
-                height={200}
-                src={item.imagen}
-                alt={item.titulo}
-                class="w-full h-48 object-cover rounded-md mb-4"
-                loading="lazy"
-              />
-              <h3 class="text-xl font-semibold mb-2 text-center text-gray-800">
-                {item.titulo}
-              </h3>
-              <p class="text-gray-600 text-lg text-center">
-                {item.descripcion}
-              </p>
+          {index % 2 === 0 ? (
+            <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-md max-w-sm">
+              <h4 class="font-semibold text-lg text-neutral-900">{step.title}</h4>
+              <p class="text-sm text-neutral-700 mt-2">{step.description}</p>
             </div>
-          ))
-        }
+          ) : null}
+        </div>
+
+        <!-- Icono -->
+        <div class="w-12 h-12 bg-white border-4 border-yellow-400 rounded-full flex items-center justify-center shadow-md text-yellow-500 text-xl">
+          <i class={step.icon}></i>
+        </div>
+
+        <!-- Derecha -->
+        <div
+          class={`hidden sm:flex items-center gap-4 w-1/2 ${
+            index % 2 === 0
+              ? ""
+              : "justify-start pl-8 text-left"
+          }`}
+        >
+          {index % 2 !== 0 ? (
+            <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-md max-w-sm">
+              <h4 class="font-semibold text-lg text-neutral-900">{step.title}</h4>
+              <p class="text-sm text-neutral-700 mt-2">{step.description}</p>
+            </div>
+          ) : null}
+        </div>
+
+  
+        <div class="sm:hidden mt-4 text-center px-4">
+          <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-md">
+            <h4 class="font-semibold text-lg text-neutral-900">{step.title}</h4>
+            <p class="text-sm text-neutral-700 mt-2">{step.description}</p>
+          </div>
+        </div>
       </div>
-    </div>
+    ))}
   </div>
-
-  <script>
-    import gsap from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-    gsap.registerPlugin(ScrollTrigger);
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const carousel = document.getElementById("carousel") as HTMLElement;
-      const prevBtn = document.getElementById("prevBtn") as HTMLElement;
-      const nextBtn = document.getElementById("nextBtn") as HTMLElement;
-
-      // GSAP animaciones
-      document.querySelectorAll("[data-animate]").forEach((el, index) => {
-        gsap.to(el, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: index * 0.15,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-            toggleActions: "play none none none",
-          },
-        });
-      });
-
-      // Mostrar u ocultar botones de navegación en desktop si hay scroll
-      function updateNavVisibility() {
-        const isScrollable = carousel.scrollWidth > carousel.clientWidth;
-        if (window.innerWidth >= 768) {
-          prevBtn.style.display = isScrollable ? "flex" : "none";
-          nextBtn.style.display = isScrollable ? "flex" : "none";
-        }
-      }
-
-      updateNavVisibility();
-      window.addEventListener("resize", updateNavVisibility);
-
-      prevBtn?.addEventListener("click", () => {
-        carousel.scrollBy({ left: -350, behavior: "smooth" });
-      });
-
-      nextBtn?.addEventListener("click", () => {
-        carousel.scrollBy({ left: 350, behavior: "smooth" });
-      });
-    });
-  </script>
 </section>
+
+
+<script >
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('[data-gsap="fade-up"]').forEach((el) => {
+    gsap.fromTo(
+      el,
+      { autoAlpha: 0, y: 50 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  });
+</script>
