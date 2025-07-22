@@ -43,17 +43,17 @@ const benefits = [
 
 <section class="bg-neutral-50 border-y border-neutral-200">
   <div class="flex flex-col md:flex-row items-start gap-6 max-w-screen-xl mx-auto py-8 benefits-container pt-10 md:pt-28 md:h-[65vh] 3xl:h-[40vh]">
-    <div class="flex-1 flex flex-col items-center md:items-start  md:w-1/2 pr-5 benefits-text-container">
+    <div class="flex-1 flex flex-col items-center md:items-start  md:w-1/2 md:pr-5 benefits-text-container">
       <div
         class="border flex items-center gap-2  px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg font-medium mb-6  bg-neutral-50  border-neutral-200 shadow-2xl"
       >
         <i class="fa-solid fa-star text-tertiary"></i>
         <span class="flex items-center  gap-1 ">Beneficios</span>
       </div>
-      <h2 class="text-2xl md:text-3xl font-medium text-gray-700 text-center md:text-left">
+      <h2 class="text-2xl md:text-3xl font-medium text-neutral-700 text-center md:text-left">
         Expandiendo horizontes, conectando posibilidades
       </h2>
-      <p class=" text-gray-600 text-lg  text-balance text-center md:text-left max-w-[50ch] mt-5">
+      <p class=" text-neutral-700 text-sm md:text-lg  text-balance text-center md:text-left max-w-[50ch] mt-5">
         Descubre cómo nuestras soluciones pueden transformar tu 
         la forma de interactuar y crecer en el mundo digital.
     </div>
@@ -66,11 +66,11 @@ const benefits = [
             </div>
             <div class="flex items-center mb-4">
               {/* <i class={benefit.icon + " text-tertiary text-3xl mr-4"} /> */}
-              <h3 class="text-2xl font-medium text-neutral-700 text-center md:text-left">
+              <h3 class="text-xl md:text-2xl font-medium text-neutral-700 text-center md:text-left">
                 {benefit.title}
               </h3>
             </div>
-            <p class="text-gray-600 text-lg text-center md:text-left">{benefit.description}</p>
+            <p class="text-neutral-700 text-sm md:text-lg text-center md:text-left">{benefit.description}</p>
           </div>
         ))
       }
