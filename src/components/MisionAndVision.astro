@@ -1,55 +1,93 @@
-<section class="bg-neutral-50 py-20 border-y border-neutral-200">
-  <h2 class="text-2xl md:text-3xl font-medium text-center text-neutral-700">
-    Impulsando el Futuro <span class="font-bold text-tertiary text-3xl">.</span>
-  </h2>
-  <div
-    class="flex flex-col md:flex-row justify-center w-full items-center md:items-start gap-10"
-  >
-    <div class="px-4 pt-20">
-      <div class="flex flex-col items-center justify-between">
-        <div class="w-full flex flex-col items-center md:items-start">
-          <div
-            class="border border-neutral-200 px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 shadow-lg"
-          >
-            <span class="flex items-center gap-1"> Nuestra misión </span>
-          </div>
-        </div>
-        <div class="w-full">
-          <p
-            class="text-sm md:text-lg text-neutral-700 leading-[1.3em] mb-4 max-w-[40ch] text-center md:text-left"
-          >
-            Nuestro enfoque combina eficiencia operativa, usabilidad y
-            escalabilidad para ayudar a instituciones y empresas a digitalizar
-            sus procesos, optimizar la gestión de recursos y habilitar nuevas
-            fuentes de ingresos a través de soluciones innovadoras
-            <span class="text-tertiary font-black">.</span>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="px-4 py-10 md:py-20">
-      <div class="flex flex-col items-center justify-between">
-        <div class="w-full flex flex-col items-center md:items-start">
-          <div
-            class="border border-neutral-200 px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 shadow-lg"
-          >
-            <span class="flex items-center gap-1"> Nuestra vision</span>
-          </div>
-        </div>
-        <div class="w-full">
-          <p
-            class="text-sm md:text-lg text-neutral-700 leading-[1.3em] mb-4 max-w-[40ch] text-center md:text-left"
-          >
-            Ser la marca que lidera la evolución tecnológica en sectores claves,
-            conectando innovación con impacto y propósito empresarial<span class="text-tertiary font-black">.</span> <br/><br/>
-            Visualizamos un entorno donde la tecnología no solo optimiza
-            operaciones, sino que impulsa nuevas formas de crecer, colaborar y
-            generar valor para las organizaciones
+---
+const blocks = [
+  {
+    label: "Nuestra misión",
+    title: "Transformar operaciones complejas en soluciones accesibles.",
+    content:
+      "Nuestro enfoque combina eficiencia operativa, usabilidad y escalabilidad para ayudar a instituciones y empresas a digitalizar sus procesos, optimizar la gestión de recursos y habilitar nuevas fuentes de ingresos.",
+    icon: "fa fa-bullseye",
+  },
+  {
+    label: "Nuestra visión",
+    title: "Ser líderes en la evolución tecnológica con propósito.",
+    content:
+      "Visualizamos un entorno donde la tecnología no solo optimiza operaciones, sino que impulsa nuevas formas de crecer, colaborar y generar valor para las organizaciones y sus usuarios.",
+    icon: "fa fa-eye",
+  },
+];
+---
 
-            <span class="text-tertiary font-black">.</span>
-          </p>
-        </div>
-      </div>
+<section class="bg-neutral-50 py-28 border-y border-neutral-200 overflow-hidden">
+  <div class="px-6 md:px-10 max-w-6xl mx-auto relative z-10">
+    <h2 class="text-3xl md:text-5xl font-medium text-neutral-800 text-center animate-heading">
+      Impulsando el Futuro <span class="font-bold text-tertiary">.</span>
+    </h2>
+
+    <div class="mt-20 grid md:grid-cols-2 gap-16">
+      {
+        blocks.map((block, i) => (
+          <div
+            class="fade-block opacity-0 translate-y-10 scale-[0.97] transition duration-500"
+            data-index={i}
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <div class="text-tertiary text-3xl">
+                <i class={block.icon}></i>
+              </div>
+              <div class="bg-neutral-100 text-sm px-4 py-1 rounded-full font-medium text-neutral-600 shadow">
+                {block.label}
+              </div>
+            </div>
+            <h3 class="text-xl md:text-2xl font-semibold text-neutral-800 mb-3">
+              {block.title}
+            </h3>
+            <p class="text-neutral-600 text-sm md:text-base leading-relaxed">
+              {block.content}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // Título principal animado
+  const title = document.querySelector(".animate-heading");
+  const split = new SplitText(title, { type: "words", aria: "hidden" });
+
+  gsap.from(split.words, {
+    opacity: 0,
+    y: 30,
+    stagger: 0.05,
+    duration: 0.6,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: title,
+      start: "top 80%",
+    },
+  });
+
+  // Animación para cada bloque
+  const blocks = document.querySelectorAll(".fade-block");
+  blocks.forEach((block, i) => {
+    gsap.to(block, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.7,
+      ease: "power3.out",
+      delay: i * 0.2,
+      scrollTrigger: {
+        trigger: block,
+        start: "top 85%",
+      },
+    });
+  });
+</script>
