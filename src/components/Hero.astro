@@ -1,80 +1,69 @@
 ---
-import Solutions from "./Solutions.astro";
 import { Image } from "astro:assets";
+import JoiDevice from "../assets/devices.png"; // tu imagen subida
 import heroBg from "../assets/hero-bg.svg";
+import Solutions from "./Solutions.astro";
 ---
 
 <section class="relative overflow-hidden">
-  <!-- bg gradient bottom -->
-  <!-- <div
-    class="absolute inset-0 bg-gradient-to-b from-neutral-50 to-primary/60 opacity-10"
-  >
-  </div> -->
   <div
-    class="w-full flex flex-col items-center pt-36 pb-10 overflow-hidden justify-center px-4 md:pl-2 relative h-[70vh] md:min-h-[80vh] 3xl:h-[10vh]"
+    class="w-full max-w-screen-xl mx-auto px-6 md:px-5 py-32 md:py-40 flex flex-col md:flex-row items-center justify-between gap-10 "
   >
-    <a
-      href="/productos"
-      class="border border-neutral-200 px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium animate-button bg-white cursor-trigger cursor-pointer"
-    >
-      <span class="flex items-center gap-1">
-      Explorar
-       <i class="fa-solid fa-arrow-right text-tertiary ml-2"></i>
-      </span>
-      </a>
-    <div
-      class="text-[1.8em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] md:max-w-[30ch] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance"
-    >
-      <span class="font-medium animate-text"
-        >Conecta el presente con el <span class="text-tertiary font-bold">futuro</span>, el cambio empieza aquí <span
-          class="text-tertiary font-black">.</span
-        ></span
+    <!-- Texto principal -->
+    <div class="md:w-1/2 text-left flex flex-col items-center md:items-start">
+      <h1
+        class="text-4xl md:text-5xl font-semibold text-neutral-700 leading-tight animate-text text-center md:text-left"
       >
-      <small class=" px-2 text-lg md:text-xl text-neutral-500 animate-text text-balance"
-        >Simplificando la tecnología, inspirando momentos<span
-          class="text-tertiary">.</span
-        ></small
-      >
-      <div
-        class="mt-10 text-sm md:text-lg flex items-center gap-2 text-neutral-800"
-      >
-        <a
-          href="/productos"
-          class="bg-neutral-50 px-8 text-neutral-700 py-3 rounded-full shadow-lg cursor-trigger cursor-pointer border border-neutral-200 animate-button relative z-[40]"
-        >
-          <span class="relative z-[60] font-medium">Explorar</span>
-        </a>
+        Crea experiencias de pago <span class="text-tertiary">simples</span> y memorables<span class="text-tertiary">.</span>
+      </h1>
+
+      <p class="text-neutral-600 text-lg md:text-xl mt-6 max-w-xl animate-text text-center md:text-left">
+        Tecnología innovadora que conecta a las personas para simplificar la
+        vida, con alegría.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4 animate-button mx-auto md:mx-0">
         <a
           href="/contacto"
-          class="bg-tertiary px-8 text-white py-3 rounded-full shadow-lg cursor-trigger cursor-pointer border-tertiary animate-button relative z-[40]"
+          class="bg-primary text-white px-6 py-3 rounded-full shadow-md text-base font-medium hover:bg-primary/90 transition cursor-trigger"
         >
-          <span class="relative z-[60] font-medium">Contáctanos</span>
-          <i class="fa-solid fa-arrow-right text-white ml-2"></i>
+          ¡Hablemos!
         </a>
       </div>
     </div>
+
+    <!-- Imagen de producto -->
+    <div class="max-w-2xl w-full">
+      <Image
+        src={JoiDevice}
+        width={1200}
+        height={800}
+        alt="Dispositivo Joi"
+        class="w-full h-auto object-contain"
+        loading="lazy"
+      />
+    </div>
   </div>
-  <!-- Partículas animadas -->
-  <div class="absolute inset-0 -z-[10] pointer-events-none">
+
+  <!-- Background -->
+  <div class="absolute inset-0 -z-10">
     <Image
       src={heroBg}
       alt="Background"
       class="w-full h-full object-cover opacity-50"
-      loading="lazy"
       width={1920}
       height={1080}
-      priority
+      loading="lazy"
     />
-
-    <!-- Overlay radial para enfocar el centro -->
     <div
-      class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_60%_40%,_rgba(0,0,0,0)_0%,_rgba(255,255,255,0.8)_60%)] pointer-events-none mix-blend-screen"
+      class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.9)_0%,_transparent_70%)] mix-blend-screen pointer-events-none"
     >
     </div>
   </div>
 
-  <Solutions/>
+  <Solutions />
 </section>
+
 <script>
   import gsap from "gsap";
   import { SplitText } from "gsap/SplitText";
@@ -93,11 +82,13 @@ import heroBg from "../assets/hero-bg.svg";
   const tl = gsap.timeline({
     defaults: { duration: 0.5, ease: "power2.out" },
   });
-  tl.delay(2.5);
+
+  tl.delay(1);
   tl.from(words, {
     opacity: 0,
-    stagger: 0.1,
-    duration: 2,
+    y: 40,
+    stagger: 0.08,
+    duration: 1,
     ease: "sine.out",
   });
 
@@ -106,11 +97,10 @@ import heroBg from "../assets/hero-bg.svg";
       button,
       {
         opacity: 0,
-        scale: 0.8,
+        scale: 0.95,
         duration: 0.5,
-        ease: "power2.out",
       },
-      "<0.5"
+      "<0.3"
     );
   });
 </script>

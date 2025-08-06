@@ -1,3 +1,6 @@
+---
+import JoiVideo from "../assets/joi-video.mp4";
+---
 <section class="py-20 md:py-40 w-full flex items-center justify-center relative overflow-hidden border-y border-neutral-200 bg-neutral-50">
   <div
     class="flex flex-col items-center justify-center max-w-screen-xl mx-auto px-4"
@@ -7,6 +10,16 @@
     >
         Pagos seguros, eficientes y transparentes con tecnología avanzada<span class="text-tertiary font-black">.</span>
     </p>
+          <div class="mt-10">
+        <video
+          src={JoiVideo}
+          class="w-full max-w-3xl rounded-2xl shadow-lg"
+          controls
+          autoplay
+          muted
+          loop
+        ></video>
+      </div>
   </div>
   <div class="absolute -bottom-[5em] md:-bottom-[10em] left-1/2 h-[5em] w-[5em]  md:h-[10em] md:w-[10em] rounded-full bg-tertiary/80 -translate-x-1/2 -translate-y-1/2"></div>
 </section>

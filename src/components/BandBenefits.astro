@@ -34,28 +34,28 @@ import JoiPayBand from '../assets/band-1.png';
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mt-2">
         <div class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]" data-gsap="fade-up">
-          <i class="fas fa-shield-alt text-2xl text-tertiary mb-3"></i>
+          <i class="fas fa-shield-alt text-5xl gradient-text mb-3"></i>
           <p class="text-neutral-700 text-lg md:text-xl">
-            Seguridad financiera para estudiantes y comercios.
+            Seguridad financiera para usuarios y comercios.
           </p>
         </div>
 
         <div class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]" data-gsap="fade-up">
-          <i class="fas fa-money-bill-wave text-2xl text-tertiary mb-3"></i>
+          <i class="fas fa-money-bill-wave text-5xl gradient-text mb-3"></i>
           <p class="text-neutral-700 text-lg md:text-xl">
             Menos uso de efectivo, más control digital.
           </p>
         </div>
 
         <div class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]" data-gsap="fade-up">
-          <i class="fas fa-stopwatch text-2xl text-tertiary mb-3"></i>
+          <i class="fas fa-stopwatch text-5xl gradient-text mb-3"></i>
           <p class="text-neutral-700 text-lg md:text-xl">
             Cobros más rápidos en puntos de venta.
           </p>
         </div>
 
         <div class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center justify-center text-center min-h-[180px]" data-gsap="fade-up">
-          <i class="fas fa-chart-line text-2xl text-tertiary mb-3"></i>
+          <i class="fas fa-chart-line text-5xl gradient-text mb-3"></i>
           <p class="text-neutral-700 text-lg md:text-xl">
             Visibilidad total sobre cada pago realizado.
           </p>
@@ -63,7 +63,13 @@ import JoiPayBand from '../assets/band-1.png';
       </div>
     </div>
   </div>
-
+<style>
+  .gradient-text {
+  background: linear-gradient(45deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>
   <script>
   import gsap from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';

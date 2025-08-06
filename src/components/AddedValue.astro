@@ -4,10 +4,10 @@ const timelineSteps = [
     title: "Seguridad financiera",
     icon: "fas fa-shield-alt",
     description:
-      "Protegemos transacciones de estudiantes y comercios con tecnología segura y transparente.",
+      "Protegemos transacciones de usuarios y comercios con tecnología segura y transparente.",
   },
   {
-    title: "Menos efectivo",
+    title: "Cashless",
     icon: "fas fa-money-bill-wave",
     description:
       "Facilitamos pagos digitales para reducir el uso de efectivo y mejorar el control.",
@@ -29,15 +29,15 @@ const timelineSteps = [
 <!-- title -->
 <div class="pt-20 px-4 md:px-6 text-center">
   <h2 class="text-2xl md:text-3xl font-bold text-center text-neutral-700 text-balance">
-    Descubre el <span class="text-yellow-500">Valor Agregado</span>
+    Nuestro <span class="text-yellow-500">valor agregado</span>
   </h2>
   <p class="mt-2 text-sm md:text-lg text-center text-neutral-600">
-    Conoce cómo nuestras soluciones transforman la forma de realizar pagos.
+   Conoce cómo nuestros productos transforman la manera de realizar pagos.
   </p>
 </div>
 <section class="relative w-full max-w-6xl mx-auto px-4 py-24">
   <!-- Línea central (solo en desktop) -->
-  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-yellow-400 z-0 "></div>
+  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-secondary z-0 "></div>
 
   <div class="space-y-16">
     {timelineSteps.map((step, index) => (
@@ -47,7 +47,6 @@ const timelineSteps = [
         } items-center relative z-10`}
         data-gsap="fade-up"
       >
-        <!-- Izquierda -->
         <div
           class={`hidden sm:flex items-center gap-4 w-1/2 ${
             index % 2 === 0
@@ -57,18 +56,14 @@ const timelineSteps = [
         >
           {index % 2 === 0 ? (
             <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-md max-w-sm">
-              <h4 class="font-semibold text-lg text-neutral-900">{step.title}</h4>
+              <h4 class="font-semibold text-xl text-neutral-700">{step.title}</h4>
               <p class="text-sm text-neutral-700 mt-2">{step.description}</p>
             </div>
           ) : null}
         </div>
-
-        <!-- Icono -->
-        <div class="w-12 h-12 bg-white border-4 border-yellow-400 rounded-full flex items-center justify-center shadow-md text-yellow-500 text-xl">
-          <i class={step.icon}></i>
+        <div class="w-20 h-20 bg-white border-4 border-yellow-400 rounded-full flex items-center justify-center shadow-md text-yellow-500 text-xl">
+          <i class={`${step.icon} text-4xl`}></i>
         </div>
-
-        <!-- Derecha -->
         <div
           class={`hidden sm:flex items-center gap-4 w-1/2 ${
             index % 2 === 0
@@ -78,7 +73,7 @@ const timelineSteps = [
         >
           {index % 2 !== 0 ? (
             <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-md max-w-sm">
-              <h4 class="font-semibold text-lg text-neutral-900">{step.title}</h4>
+              <h4 class="font-semibold text-xl text-neutral-700">{step.title}</h4>
               <p class="text-sm text-neutral-700 mt-2">{step.description}</p>
             </div>
           ) : null}

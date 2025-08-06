@@ -15,14 +15,8 @@ const links = [
     isActive: false,
   },
   {
-    name: "Productos",
-    href: "/productos",
-    dropdown: [
-      {
-        name: "Pulsera de pago NFC",
-        href: "/productos/pulsera-de-pago-nfc",
-      },
-    ],
+    name: "Joi Taq",
+    href: "/joi-taq",
     isActive: false,
   },
 ];
@@ -50,23 +44,6 @@ const links = [
               >
                 {link.name}
               </a>
-
-              {link.dropdown.length > 0 && (
-                <ul
-                  class="dropdown-menu absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg opacity-0 pointer-events-none scale-95 origin-top transition-transform duration-300"
-                >
-                  {link.dropdown.map((item) => (
-                    <li>
-                      <a
-                        href={item.href}
-                        class="px-4 py-2 hover:bg-gray-100 text-neutral-700 inline-block font-medium text-lg"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </li>
           ))
         }
@@ -81,7 +58,7 @@ const links = [
         <span class="relative z-[60] font-medium">Contáctanos</span>
         <i class="fa-solid fa-arrow-right text-tertiary ml-2"></i>
       </a>
-      <button id="nav-menu" class="bg-tertiary p-3 rounded-full md:hidden z-[50]">
+      <button id="nav-menu" class="bg-primary p-3 rounded-full md:hidden z-[50]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5 text-white"
@@ -105,7 +82,7 @@ const links = [
         <LogoIcon class="text-[1.8em]" />
       </a>
       <button id="close-menu" class="p-2 rounded-full hover:bg-neutral-100 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-tertiary font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-primary font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
@@ -131,8 +108,10 @@ const links = [
 
 <style>
   .link-active {
-    background-color: white;
-    border: 1px solid #e5e7eb;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 </style>
 

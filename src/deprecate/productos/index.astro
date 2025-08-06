@@ -1,0 +1,205 @@
+---
+import { Image } from "astro:assets";
+import heroBg from "../../assets/hero-bg.svg";
+import Layout from "../../layouts/Layout.astro";
+import CTA from "../../components/CTA.astro";
+import deviceJoiPay from "../../assets/js-1.png";
+import mobileJoiPay from "../../assets/band-1.png";
+import JoiPayIcon from "../../icons/JoiPayIcon.astro";
+const products = [
+  {
+    name: "Pulsera de pago NFC",
+    description:
+      "Closeloop moderniza instituciones, eventos y comercios con una solución digital basada en pulsera NFC que simplifica y da trazabilidad a las transacciones diarias",
+    mobileImage: mobileJoiPay,
+    deviceImage: deviceJoiPay,
+    icon: JoiPayIcon,
+      slug: "joi-taq",
+  },
+  // {
+  //   name: "JoiNow",
+  //   description:
+  //     "Solución de pago digital que permite a los estudiantes realizar transacciones en el campus de manera rápida y segura",
+  //   mobileImage: nine,
+  //   deviceImage: three,
+  //   icon: JoiNowIcon,
+  // },
+  // {
+  //   name: "JoiCare",
+  //   description:
+  //     "Solución de gestión de salud escolar que permite a los padres y colegios gestionar la salud de los estudiantes de manera eficiente",
+  //   mobileImage: ten,
+  //   deviceImage: four,
+  //   icon: JoiCareIcon,
+
+  // },
+  // {
+  //   name: "JoiSave",
+  //   description:
+  //     "Solución de ahorro escolar que fomenta el hábito del ahorro en los estudiantes a través de una tarjeta física y una app móvil",
+  //   mobileImage: eleven,
+  //   deviceImage: five,
+  //   icon: JoiSaveIcon,
+  // }
+];
+---
+
+<Layout>
+  <section class="relative overflow-hidden">
+    <!-- bg gradient bottom -->
+    <!-- <div
+    class="absolute inset-0 bg-gradient-to-b from-neutral-50 to-primary/60 opacity-10"
+  >
+  </div> -->
+    <div
+      class="w-full flex flex-col items-center pt-36 pb-10 overflow-hidden justify-center px-4 md:pl-2 relative h-[70vh] md:min-h-[80vh] 3xl:h-[10vh]"
+    >
+      <a
+        href="/joi-taq"
+        class="border border-neutral-200 px-6 py-1 rounded-full text-center text-neutral-500 text-sn md:text-lg mb-6 font-medium animate-button bg-white cursor-trigger cursor-pointer"
+      >
+        <span class="flex items-center gap-1"> Nuestros productos </span>
+      </a>
+      <div
+        class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance"
+      >
+        <span class="font-medium animate-text text-balance max-w-[30ch]">
+          Productos que conectan,
+          <span class="text-tertiary font-bold">soluciones</span> que evolucionan<span
+            class="text-tertiary font-bold">.</span
+          >
+        </span>
+        <small
+          class="px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance"
+        >
+          Desde lo esencial hasta lo innovador, pensados para tu crecimiento<span
+            class="text-tertiary">.</span
+          >
+        </small>
+      </div>
+    </div>
+    <!-- Partículas animadas -->
+    <div class="absolute inset-0 -z-[10] pointer-events-none">
+      <Image
+        src={heroBg}
+        alt="Background"
+        class="w-full h-full object-cover opacity-50"
+        loading="lazy"
+        width={1920}
+        height={1080}
+        priority
+      />
+
+      <!-- Overlay radial para enfocar el centro -->
+      <div
+        class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_60%_40%,_rgba(0,0,0,0)_0%,_rgba(255,255,255,0.8)_60%)] pointer-events-none mix-blend-screen"
+      >
+      </div>
+    </div>
+  </section>
+  <section>
+    {
+      products.map((product) => (
+        <div class="max-w-screen-xl mx-auto w-full flex flex-col items-center  justify-between md:gap-10 px-4 py-10 md:py-20 ">
+          <div class="relative md:w-2/3">
+            <Image
+              src={product.deviceImage}
+              alt="Device JoiPay"
+              class="relative z-10 w-full h-auto md:w-[600px] 3xl:w-[800px] mx-auto"
+            />
+            <Image
+              src={product.mobileImage}
+              alt="Mobile JoiPay"
+              class="z-20 hidden md:block w-[100px] md:w-[200px] absolute top-[6em] md:top-[6em] left-0 md:left-[4em] 3xl:-left-[1em] 3xl:top-[13em]  parallax-device"
+              loading="lazy"
+            />
+          </div>
+          <div class="device-text md:w-2/3 flex flex-col gap-2 items-center md:items-start justify-center my-4  md:my-0">
+            {/* <product.icon class="text-[4em] md:text-[3em] 3xl:text-[4.5em] text-neutral-700 hidden md:block" /> */}
+            <p class="md:min-w-[500px] w-full text-balance text-neutral-700 text-center mt-10">
+              {product.description}
+              <span class="text-tertiary font-black">.</span>
+            </p>
+            <div class="mt-4 text-sm  flex items-center justify-center gap-2 text-neutral-800 w-full ">
+              <a
+                href={`/contacto${product.slug && "?p=" + product.slug}`}
+                class=" bg-neutral-50  px-8 text-neutral-700 py-3 rounded-full shadow-lg cursor-trigger cursor-pointer border border-neutral-200 relative z-[40]"
+              >
+                <span class="relative z-[60] font-medium text-sm">
+                  Agendar una demo
+                </span>
+              </a>
+              {product.slug && (
+                <a
+                  href={`/${product.slug}`}
+                  class="bg-tertiary px-8 text-white flex items-center gap-2 shadow-md py-3 rounded-full cursor-trigger cursor-pointer border border-tertiary relative z-[40]"
+                >
+                  <span class="relative z-[60] font-medium">Ver más</span>
+                  <i class="fa fa-arrow-right"></i>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+  <CTA />
+</Layout>
+<script>
+  import gsap from "gsap";
+  import { SplitText } from "gsap/SplitText";
+
+  gsap.registerPlugin(SplitText);
+
+  const animateButton = document.querySelectorAll(
+    ".animate-button"
+  ) as NodeListOf<HTMLElement>;
+  const splitText = new SplitText(".animate-text", {
+    type: "words",
+    aria: "hidden",
+  });
+
+  const words = splitText.words;
+  const tl = gsap.timeline({
+    defaults: { duration: 0.5, ease: "power2.out" },
+  });
+  // tl.delay(2.5);
+  tl.from(words, {
+    opacity: 0,
+    stagger: 0.1,
+    duration: 2,
+    ease: "sine.out",
+  });
+
+  animateButton.forEach((button) => {
+    tl.from(
+      button,
+      {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.5,
+        ease: "power2.out",
+      },
+      "<0.5"
+    );
+  });
+
+  //   parallax device
+  const parallaxDevice = document.querySelectorAll(
+    ".parallax-device"
+  ) as NodeListOf<HTMLElement>;
+
+  parallaxDevice.forEach((device) => {
+    gsap.from(device, {
+      y: 50,
+      ease: "none",
+      scrollTrigger: {
+        trigger: device,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  });
+</script>
