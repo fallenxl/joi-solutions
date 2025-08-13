@@ -1,41 +1,36 @@
 ---
+// (imports iguales)
 import Layout from "../layouts/Layout.astro";
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 import heroBg from "../assets/hero-bg.svg";
 import Benefits from "../components/Benefits.astro";
 import QuoteAnimation from "../components/QuoteAnimation.astro";
 ---
 
 <Layout>
-   <section class="relative overflow-hidden">
-    <!-- bg gradient bottom -->
-    <!-- <div
-    class="absolute inset-0 bg-gradient-to-b from-neutral-50 to-primary/60 opacity-10"
-  >
-  </div> -->
+  <section class="relative overflow-hidden">
     <div
-      class="w-full flex flex-col items-center pt-36  overflow-hidden justify-center px-4 md:pl-2 relative h-[70vh] md:min-h-[80vh] 3xl:h-[10vh]"
+      class="w-full flex flex-col items-center pt-36 overflow-hidden justify-center px-4 md:pl-2 relative h-[70vh] md:min-h-[80vh] 3xl:h-[10vh]"
     >
       <span
         class="border border-neutral-200 px-6 py-1 rounded-full text-center text-neutral-500 text-lg mb-6 font-medium animate-button bg-white cursor-trigger cursor-pointer"
       >
-        <span class="flex items-center gap-1"> Hablemos</span>
+        <span class="flex items-center gap-1">Hablemos</span>
       </span>
+
+      <!-- (Arregla el doble cierre de </small>) -->
       <div
         class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance"
       >
         <span class="font-medium animate-text">
           ¿Listo para <span class="text-tertiary font-bold">impulsar</span> tu proyecto?<span class="text-tertiary">.</span>
         </span>
-        <small
-          class="px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance max-w-[80ch]"
-        >
+        <small class="px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance max-w-[80ch]">
           Creemos en el poder de las ideas que transforman. Si tú también, hablemos y construyamos el futuro juntos<span class="text-tertiary">.</span>
-        </small>
         </small>
       </div>
     </div>
-    <!-- Partículas animadas -->
+
     <div class="absolute inset-0 -z-[10] pointer-events-none">
       <Image
         src={heroBg}
@@ -46,75 +41,39 @@ import QuoteAnimation from "../components/QuoteAnimation.astro";
         height={1080}
         priority
       />
-
-      <!-- Overlay radial para enfocar el centro -->
       <div
         class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_60%_40%,_rgba(0,0,0,0)_0%,_rgba(255,255,255,0.8)_60%)] pointer-events-none mix-blend-screen"
-      >
-      </div>
+      ></div>
     </div>
   </section>
-  <!-- form -->
-   <section class="flex flex-col items-center justify-center px-4 pb-10">
-    <form
-    class="max-w-screen-md w-full flex flex-col gap-4"
-    >
-      <div class="mb-4 relative border rounded-md px-4 py-2 border-neutral-300 ">
-        <label for="name" class="absolute -top-3 left-3 bg-white px-2 text-sm font-medium text-gray-700 border border-neutral-300 rounded-md">Nombre</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="ej. Juan Pérez"
-          class="mt-1 block w-full outline-none"
-          required
-          
-        />
-      </div>
-      <div class="mb-4 relative border rounded-md px-4 py-2 border-neutral-300 ">
-        <label for="email" class="absolute -top-3 left-3 bg-white px-2 text-sm font-medium text-gray-700 border border-neutral-300 rounded-md">Correo electrónico</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="ej. ejemplo@domain.com"
-          class="mt-1 block w-full outline-none"
-          required
-        />
-      </div>
-      <!-- custom select with this options: farmacia, escuelas, otro -->
-      <div class="mb-4 relative border rounded-md px-4 py-2 border-neutral-300 ">
-        <label for="business" class="absolute -top-3 left-3 bg-white px-2 text-sm font-medium text-gray-700 border border-neutral-300 rounded-md">Tipo de negocio</label>
-        <select
-          id="business"
-          name="business"
-          class="mt-1 block w-full outline-none"
-          required
-        >
-          <option value="" disabled selected>Selecciona una opción</option>
-          <option value="Educación">Educación</option>
-          <option value="Salud">Salud</option>
-          <option value="Retail">Retail</option>
-          <option value="Otro">Otro</option>
-        </select>
-      </div>
-      <div class="mb-4 relative border rounded-md px-4 py-2 border-neutral-300 ">
-        <label for="message" class="absolute -top-3 left-3 bg-white px-2 text-sm font-medium text-gray-700 border border-neutral-300 rounded-md">Mensaje</label>
-        <textarea
-          id="message"
-          name="message"
-          placeholder="Escribe tu mensaje aquí..."
-          class="mt-1 block w-full outline-none h-32 resize-none"
-          required
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        class="w-1/3 bg-neutral-50 border border-neutral-200 text-neutral-700 py-2 px-4 rounded-full hover:bg-primary-dark  duration-300 self-end transition-all transform  hover:scale-105 "
-      >
-        Enviar
-      </button>
-    </form>
+
+  <!-- FORM sin scroll interno; alto dinámico controlado por ClickUp -->
+  <section id="contact-form" class="relative py-10 scroll-none">
+    <div class="overflow-hidden">
+      <iframe
+        class="clickup-embed clickup-dynamic-height block w-full overflow-hidden"
+        src="https://forms.clickup.com/9011902119/f/8cjddn7-17351/B41PJZET1J51ZNXSTK"
+        title="Formulario de contacto"
+        scrolling="no"
+        loading="lazy"
+        style="border: 1px solid #ccc; width: 100%; height: auto; overflow: hidden;"
+        onwheel=""  
+      ></iframe>
+      <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+
+      <!-- Fallback mínimo por si el script tarda en aplicar la altura -->
+      <style is:global>
+        .clickup-embed.clickup-dynamic-height {
+          min-height: 150vh; /* ajusta si quieres menos/más espacio inicial */
+          overflow: hidden;
+        }
+        .cu-form{
+          overflow: hidden !important;
+        }
+        .inside-iframe {
+          overflow: hidden !important;
+        }
+      </style>
+    </div>
   </section>
-  <QuoteAnimation />
 </Layout>
