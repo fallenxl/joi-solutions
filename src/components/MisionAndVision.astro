@@ -2,16 +2,16 @@
 const blocks = [
   {
     label: "Nuestra misión",
-    title: "Transformar operaciones complejas en soluciones accesibles.",
+    title: "Desarrollamos plataformas tecnológicas escalables que conectan y optimizan las operaciones de los negocios.",
     content:
-      "Nuestro enfoque combina eficiencia operativa, usabilidad y escalabilidad para ayudar a instituciones y empresas a digitalizar sus procesos, optimizar la gestión de recursos y habilitar nuevas fuentes de ingresos.",
+      "Nuestro enfoque combina eficiencia operativa, usabilidad y escalabilidad para ayudar a instituciones y empresas a digitalizar sus procesos, optimizar la gestión de recursos y habilitar nuevas fuentes de ingresos a través de soluciones innovadoras.",
     icon: "fa fa-bullseye",
   },
   {
     label: "Nuestra visión",
-    title: "Ser líderes en la evolución tecnológica con propósito.",
+    title: "Ser la marca que lidera la evolución tecnológica en sectores claves.",
     content:
-      "Visualizamos un entorno donde la tecnología no solo optimiza operaciones, sino que impulsa nuevas formas de crecer, colaborar y generar valor para las organizaciones y sus usuarios.",
+      "Visualizamos un entorno donde la tecnología no solo optimiza operaciones, sino que impulsa nuevas formas de crecer, colaborar y generar valor para las organizaciones.\nQueremos estar presentes en los momentos que impulsan la competitividad de las empresas, actuando como un socio confiable y estratégico en su transformación digital.",
     icon: "fa fa-eye",
   },
 ];
@@ -42,7 +42,9 @@ const blocks = [
               {block.title}
             </h3>
             <p class="text-neutral-600 text-sm md:text-base leading-relaxed">
-              {block.content}
+              {block.content.split("\n").map((line) => (
+                <span>{line}<br/><br/></span>
+              ))}
             </p>
           </div>
         ))

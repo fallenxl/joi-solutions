@@ -23,10 +23,17 @@ import QuoteAnimation from "../components/QuoteAnimation.astro";
         class="text-[2em] leading-[1.3em] xl:text-6xl 3xl:text-[5em] flex flex-col gap-2 items-center text-neutral-700 text-center text-balance"
       >
         <span class="font-medium animate-text">
-          ¿Listo para <span class="text-tertiary font-bold">impulsar</span> tu proyecto?<span class="text-tertiary">.</span>
+          ¿Listo para <span class="text-tertiary font-bold">impulsar</span> tu proyecto?<span
+            class="text-tertiary">.</span
+          >
         </span>
-        <small class="px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance max-w-[80ch]">
-          Creemos en el poder de las ideas que transforman. Si tú también, hablemos y construyamos el futuro juntos<span class="text-tertiary">.</span>
+        <small
+          class="px-2 text-sm md:text-xl text-neutral-500 animate-text text-balance max-w-[80ch]"
+        >
+          Creemos en el poder de las ideas que transforman. Si tú también,
+          hablemos y construyamos el futuro juntos<span class="text-tertiary"
+            >.</span
+          >
         </small>
       </div>
     </div>
@@ -43,7 +50,8 @@ import QuoteAnimation from "../components/QuoteAnimation.astro";
       />
       <div
         class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_60%_40%,_rgba(0,0,0,0)_0%,_rgba(255,255,255,0.8)_60%)] pointer-events-none mix-blend-screen"
-      ></div>
+      >
+      </div>
     </div>
   </section>
 
@@ -51,15 +59,15 @@ import QuoteAnimation from "../components/QuoteAnimation.astro";
   <section id="contact-form" class="relative py-10 scroll-none">
     <div class="overflow-hidden">
       <iframe
-        class="clickup-embed clickup-dynamic-height block w-full overflow-hidden"
+        class="clickup-embed clickup-dynamic-height"
         src="https://forms.clickup.com/9011902119/f/8cjddn7-17351/B41PJZET1J51ZNXSTK"
-        title="Formulario de contacto"
-        scrolling="no"
-        loading="lazy"
-        style="border: 1px solid #ccc; width: 100%; height: auto; overflow: hidden;"
-        onwheel=""  
-      ></iframe>
-      <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+        onwheel=""
+        width="100%"
+        height="100%"
+        style="background: transparent; border: 1px solid #ccc;"
+      ></iframe><script
+        async
+        src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
 
       <!-- Fallback mínimo por si el script tarda en aplicar la altura -->
       <style is:global>
@@ -67,7 +75,7 @@ import QuoteAnimation from "../components/QuoteAnimation.astro";
           min-height: 150vh; /* ajusta si quieres menos/más espacio inicial */
           overflow: hidden;
         }
-        .cu-form{
+        .cu-form {
           overflow: hidden !important;
         }
         .inside-iframe {

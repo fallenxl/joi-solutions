@@ -1,52 +1,57 @@
-<section class="py-20  w-full flex items-center justify-center relative overflow-hidden border-t bg-white border-neutral-200">
+<section
+  class="py-20 w-full flex items-center justify-center relative overflow-hidden border-t bg-white border-neutral-200"
+>
   <div
     class="flex flex-col items-center justify-center max-w-screen-xl mx-auto px-4 py-32"
   >
     <div
-      class="border  px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
+      class="border px-6 py-1 rounded-full text-center text-neutral-500 text-sm md:text-lg mb-6 font-medium bg-neutral-50 border-neutral-200 shadow-2xl"
     >
       <span class="flex items-center gap-1">Nuestro propósito</span>
     </div>
     <p
-      class="text-xl md:text-3xl 3xl:text-4xl font-medium text-neutral-700  leading-[1.3em] mb-4 animate-quote  text-center max-w-[50ch] "
+      class="text-xl md:text-3xl 3xl:text-4xl font-medium text-neutral-700 leading-[1.3em] mb-4 animate-quote text-center max-w-[50ch]"
     >
-      Rediseñamos la forma en que las personas y los negocios se conectan. Creamos soluciones tecnológicas que simplifican lo complejo, acercan oportunidades y transforman lo cotidiano en experiencias inteligentes<span
+      Nuestro propósito es acelerar el crecimiento de sectores claves,
+      derribando barreras operativas y creando experiencias que impulsan
+      impacto, evolución continua y progreso compartido.<span
         class="text-tertiary font-black">.</span
       >
     </p>
   </div>
-   <div class="absolute -bottom-[5em] md:-bottom-[10em] left-1/2 h-[5em] w-[5em]  md:h-[10em] md:w-[10em] rounded-full bg-tertiary/80 -translate-x-1/2 -translate-y-1/2"></div>
+  <div
+    class="absolute -bottom-[5em] md:-bottom-[10em] left-1/2 h-[5em] w-[5em] md:h-[10em] md:w-[10em] rounded-full bg-tertiary/80 -translate-x-1/2 -translate-y-1/2"
+  >
+  </div>
 
-<script>
-  import gsap from "gsap";
-  import { SplitText } from "gsap/SplitText";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  <script>
+    import gsap from "gsap";
+    import { SplitText } from "gsap/SplitText";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(SplitText, ScrollTrigger);
+    gsap.registerPlugin(SplitText, ScrollTrigger);
 
-  const animateQuote = document.querySelector(".animate-quote");
+    const animateQuote = document.querySelector(".animate-quote");
 
-  const splitText = new SplitText(animateQuote, {
-    type: "words",
-    aria: "hidden",
-  });
+    const splitText = new SplitText(animateQuote, {
+      type: "words",
+      aria: "hidden",
+    });
 
-  const words = splitText.words;
+    const words = splitText.words;
 
-  gsap.from(words, {
-    opacity: 0,
-    y: 20,
-    stagger: 0.03,
-    duration: 0.6,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: animateQuote,
-      start: "top 85%",
-      end: "top 20%",
-      toggleActions: "play none none reverse",
-    },
-  });
-</script>
-
-  </section>
-
+    gsap.from(words, {
+      opacity: 0,
+      y: 20,
+      stagger: 0.03,
+      duration: 0.6,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: animateQuote,
+        start: "top 85%",
+        end: "top 20%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  </script>
+</section>
