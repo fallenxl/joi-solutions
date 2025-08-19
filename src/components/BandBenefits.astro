@@ -141,7 +141,7 @@ import JoiPayBand from '../assets/band-1.png';
   </style>
 
   <!-- GSAP en <script> HTML, sin onMount -->
-<script is:inline>
+<script >
   import gsap from "gsap";
   import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -150,10 +150,10 @@ import JoiPayBand from '../assets/band-1.png';
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Fade-up en cascada
-  const items = Array.from(document.querySelectorAll('[data-gsap="fade-up"]'));
+  const items = Array.from(document.querySelectorAll('[data-gsap="fade-up"]')) as HTMLElement[];
   items.forEach((el, i) => {
     if (prefersReduced) {
-      el.style.opacity = 1;
+      el.style.opacity = '1';
       el.style.transform = 'none';
       return;
     }
@@ -168,7 +168,7 @@ import JoiPayBand from '../assets/band-1.png';
   });
 
   // Imagen: entrada + parallax + flotación + tilt
-  const imgWrapper = document.querySelector('[data-gsap="img-scale"]');
+  const imgWrapper = document.querySelector('[data-gsap="img-scale"]') as HTMLElement | null;
   if (imgWrapper && !prefersReduced) {
     gsap.fromTo(imgWrapper, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 1, ease: 'power2.out' });
     gsap.to(imgWrapper, {
@@ -179,15 +179,15 @@ import JoiPayBand from '../assets/band-1.png';
     gsap.to(imgWrapper, { yPercent: -2, duration: 3.5, yoyo: true, repeat: -1, ease: 'sine.inOut' });
 
     // Tilt con mouse
-    let rafId;
-    const tilt = (e) => {
+    let rafId: number;
+    const tilt = (e:any) => {
       const r = imgWrapper.getBoundingClientRect();
       const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
       const dx = (e.clientX - cx) / r.width, dy = (e.clientY - cy) / r.height;
       imgWrapper.style.transform = `rotateX(${dy * -6}deg) rotateY(${dx * 6}deg)`;
       cancelAnimationFrame(rafId); rafId = requestAnimationFrame(() => {});
     };
-    const resetTilt = () => { imgWrapper.style.transform = 'rotateX(0deg) rotateY(0deg)'; };
+    const resetTilt = () => { imgWrapper!.style.transform = 'rotateX(0deg) rotateY(0deg)'; };
 
     imgWrapper.addEventListener('mousemove', tilt);
     imgWrapper.addEventListener('mouseleave', resetTilt);
