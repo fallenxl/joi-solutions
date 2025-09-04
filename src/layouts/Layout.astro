@@ -4,20 +4,139 @@ import AnimationInit from "../components/AnimationInit.astro";
 import Navigation from "../components/Navigation.astro";
 import CustomCursor from "../components/CustomCursor.astro";
 import Footer from "../components/Footer.astro";
+
+/* Ajusta según tu branding */
+const site = Astro.site ?? new URL("https://joisolutions.io");
+const path = Astro.url?.pathname ?? "/";
+const canonical = new URL(path, site).toString();
+
+const SEO = {
+  lang: "es",
+  title: "Joi Solutions",
+  description:
+    "Tecnología innovadora que conecta a las personas para simplificar la vida, con alegría.",
+  keywords:
+    "Joi Solutions,Peru, Honduras, Latinoamérica, Pagos simples, Pago seguros, Soluciones de pago, innovacion tecnológica",
+  image: new URL("/og/logo.svg", site).toString(),   // 1200x630 recomendado
+  imageAlt: "Joi Solutions — Tecnología innovadora que conecta a las personas para simplificar la vida, con alegría.",
+  twitter: "@", // pon tu usuario real o déjalo vacío
+  locale: "es_LA",
+  themeLight: "#ffffff",
+  themeDark: "#0B132B",
+};
+const alternates = [
+  { code: "es", href: canonical },
+  { code: "en", href: new URL(`/en${path}`, site).toString() },
+  { code: "x-default", href: new URL(`/en${path}`, site).toString() },
+];
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={SEO.lang}>
   <head>
+    <!-- Básico -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Joi Solutions</title>
+
+    <title>{SEO.title}</title>
+    <meta name="description" content={SEO.description} />
+    <meta name="keywords" content={SEO.keywords} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((a) => (
+      <link rel="alternate" hreflang={a.code} href={a.href} />
+    ))}
+
+    <!-- Robots -->
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no, address=no, email=no" />
+
+    <!-- Colores navegador -->
+    <meta name="theme-color" content={SEO.themeLight} media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content={SEO.themeDark}  media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Joi Solutions" />
+    <meta property="og:locale" content={SEO.locale} />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content={SEO.title} />
+    <meta property="og:description" content={SEO.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={SEO.image} />
+    <meta property="og:image:alt" content={SEO.imageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    {SEO.twitter && <meta name="twitter:site" content={SEO.twitter} />}
+    {SEO.twitter && <meta name="twitter:creator" content={SEO.twitter} />}
+    <meta name="twitter:title" content={SEO.title} />
+    <meta name="twitter:description" content={SEO.description} />
+    <meta name="twitter:image" content={SEO.image} />
+    <meta name="twitter:image:alt" content={SEO.imageAlt} />
+
+    <!-- PWA / Icons -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Joi Solutions" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="msapplication-TileColor" content={SEO.themeLight} />
+
+    <!-- Preload OG -->
+    <link
+      rel="preload"
+      as="image"
+      href="/og/logo.svg"
+      type="image/svg+xml"
+      imagesrcset="/og/logo.svg 1x, /og/logo.svg 2x"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Joi Solutions",
+        url: site.toString(),
+        logo: new URL("/logo.png", site).toString(),
+        sameAs: [
+          "https://www.instagram.com/joi_solutions",
+        ],
+      })}
+    </script>
+
+    <!-- JSON-LD: WebSite + SearchAction -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Joi Solutions",
+        url: site.toString(),
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${site}search?q={query}`,
+          "query-input": "required name=query",
+        },
+      })}
+    </script>
   </head>
   <body class="font-poppins">
     <CustomCursor />
-      <AnimationInit />
+    <AnimationInit />
     <Navigation />
     <slot />
     <Footer />
