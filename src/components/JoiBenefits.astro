@@ -1,21 +1,25 @@
 ---
+import manualUser from "../assets/docs/Instructivo-usuarios.pdf";
 const benefits = [
   {
     title: "Usuarios",
     description:
       "Control total desde el celular sobre recargas y reportes de consumo. Una sola bandita para pagar todo dentro del entorno autorizado.",
     icon: "fa fa-users",
+    manual: manualUser,
   },
   {
     title: "Sponsors",
     description:
       "Control de pagos,  posicionamiento como líderes de innovación, ingresos adicionales.",
     icon: "fa fa-handshake",
+    manual: null,
   },
   {
     title: "Comercio",
     description: "Cobros instantáneos y seguros, sin efectivo ni errores.",
     icon: "fa fa-store",
+    manual: null,
   },
 ];
 ---
@@ -56,6 +60,16 @@ const benefits = [
               <p class="text-neutral-600 mt-2 text-sm md:text-lg">
                 {benefit.description}
               </p>
+              {benefit.manual && (
+                <a
+                  href={benefit.manual}
+                  target="_blank"
+                  class="mt-4 inline-block text-sm md:text-base text-tertiary font-medium hover:underline"
+                  >Ver Instructivo 
+                  <i class="fa fa-arrow-right ml-1"></i>
+                  </a
+                >
+              )}
             </div>
           ))
         }

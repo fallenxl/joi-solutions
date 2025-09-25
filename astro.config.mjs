@@ -12,4 +12,4 @@ export default defineConfig({
   },
   site: 'https://joisolutions.io',
   integrations: [sitemap()]
-});
+});                             
