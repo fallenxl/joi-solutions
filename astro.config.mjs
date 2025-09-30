@@ -11,5 +11,8 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://joisolutions.io',
+  build: {
+    assets: 'media'
+  },
   integrations: [sitemap()]
 });                             
